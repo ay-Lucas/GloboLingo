@@ -1,22 +1,23 @@
 package com.narriation;
 
+import java.util.Iterator;
+import java.util.stream.Stream;
+
 // Copyright Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // SPDX-License-Identifier: Apache-2.0
 
 import software.amazon.awssdk.regions.Region;
 import software.amazon.awssdk.services.polly.PollyClient;
 import software.amazon.awssdk.services.polly.model.DescribeVoicesRequest;
-import software.amazon.awssdk.services.polly.model.Voice;
 import software.amazon.awssdk.services.polly.model.DescribeVoicesResponse;
 import software.amazon.awssdk.services.polly.model.PollyException;
-
-import java.util.Iterator;
-import java.util.stream.Stream;
+import software.amazon.awssdk.services.polly.model.Voice;
 
 public class VoiceList {
-    private VoiceList(){};
+    private VoiceList() {
+    };
 
-    public static void showVoices(Region region){
+    public static void showVoices(Region region) {
         PollyClient polly = PollyClient.builder().region(region).build();
 
         displayVoices(polly);
@@ -34,11 +35,11 @@ public class VoiceList {
 
             Iterator<Voice> voices = voiceStream.iterator();
 
-            while(voices.hasNext()){
+            while (voices.hasNext()) {
                 Voice voice = voices.next();
-                
+
                 System.out.println(voice.name() + ": " + voice.genderAsString() + " " + voice.languageName());
-                
+
             }
 
         } catch (PollyException e) {
@@ -47,8 +48,8 @@ public class VoiceList {
         }
     }
 
-    public static void main(String[] args){
-        VoiceList.showVoices(Region.EU_WEST_3);
+    public static void main(String[] args) {
+        VoiceList.showVoices(Region.US_EAST_1);
     }
-    
+
 }
