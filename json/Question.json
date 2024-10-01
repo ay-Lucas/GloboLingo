@@ -1,0 +1,13 @@
+[
+    {
+      "type": "MultipleChoice",
+      "options": ["Hola", "Bonjour", "Hello"],
+      "answer": 2
+    },
+    {
+      "type": "Flashcard",
+      "prompt": "What is the Spanish word for 'Thank you'?",
+      "answer": "Gracias"
+    }
+  ]
+  

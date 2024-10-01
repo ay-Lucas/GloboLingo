@@ -1,0 +1,39 @@
+[
+    {
+      "name": "Greetings",
+      "difficulty": 1,
+      "isComplete": true,
+      "questions": [
+        {
+          "type": "MultipleChoice",
+          "options": ["Hola", "Bonjour", "Hello"],
+          "answer": 2
+        },
+        {
+          "type": "Flashcard",
+          "prompt": "What is the Spanish word for 'Hello'?",
+          "answer": "Hola"
+        }
+      ],
+      "userScore": 85,
+      "maxScore": 100
+    },
+    {
+      "name": "Verb Conjugation",
+      "difficulty": 2,
+      "isComplete": false,
+      "questions": [
+        {
+          "type": "Matching",
+          "words": [
+            {"word": "beber", "translation": "to drink"},
+            {"word": "comer", "translation": "to eat"}
+          ],
+          "picture": "verb_picture.png"
+        }
+      ],
+      "userScore": 50,
+      "maxScore": 100
+    }
+  ]
+  

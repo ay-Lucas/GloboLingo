@@ -1,0 +1,15 @@
+[
+    {
+      "course": "Spanish",
+      "completedSections": 2,
+      "completedLessons": 5,
+      "nextLootCrateAt": 10
+    },
+    {
+      "course": "French",
+      "completedSections": 3,
+      "completedLessons": 8,
+      "nextLootCrateAt": 15
+    }
+  ]
+  

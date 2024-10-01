@@ -1,0 +1,21 @@
+[
+    {
+      "userList": [
+        {
+          "username": "johnDoe123",
+          "password": "password123"
+        },
+        {
+          "username": "janeDoe456",
+          "password": "securePass456"
+        }
+      ],
+      "progressList": [
+        {
+          "course": "Spanish",
+          "completedSections": 2
+        }
+      ]
+    }
+  ]
+  

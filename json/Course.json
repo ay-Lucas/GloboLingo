@@ -1,0 +1,49 @@
+[
+    {
+      "title": "Spanish",
+      "subject": "Beginner",
+      "sections": [
+        {
+          "title": "Basics",
+          "difficulty": 1,
+          "lessons": [
+            {
+              "name": "Greetings",
+              "isComplete": true
+            }
+          ]
+        },
+        {
+          "title": "Verbs",
+          "difficulty": 2,
+          "lessons": [
+            {
+              "name": "Verb Conjugation",
+              "isComplete": false
+            }
+          ]
+        }
+      ],
+      "currentSection": "Verbs",
+      "language": "SPANISH"
+    },
+    {
+      "title": "French",
+      "subject": "Intermediate",
+      "sections": [
+        {
+          "title": "Basic Grammar",
+          "difficulty": 2,
+          "lessons": [
+            {
+              "name": "Nouns and Verbs",
+              "isComplete": true
+            }
+          ]
+        }
+      ],
+      "currentSection": "Basic Grammar",
+      "language": "FRENCH"
+    }
+  ]
+  
