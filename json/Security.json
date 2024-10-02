@@ -1,0 +1,14 @@
+[
+  {
+      "breachLogs": ["Unauthorized login attempt detected"],
+      "errorLogs": ["Null pointer exception in Lesson class"],
+      "reportedBreach": "User credentials stolen",
+      "encryptData": "EncryptedDataHere"
+  },
+  {
+      "breachLogs": [],
+      "errorLogs": ["Out of memory in Section class"],
+      "reportedBreach": "N/A",
+      "encryptData": "EncryptedDataHere"
+  }
+]

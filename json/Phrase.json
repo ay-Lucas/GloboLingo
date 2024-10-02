@@ -1,0 +1,20 @@
+[
+  {
+      "phraseEnglish": "How are you?",
+      "translation": [
+          {
+              "language": "Spanish",
+              "word": "¿Cómo estás?"
+          }
+      ]
+  },
+  {
+      "phraseEnglish": "Good morning",
+      "translation": [
+          {
+              "language": "French",
+              "word": "Bonjour"
+          }
+      ]
+  }
+]

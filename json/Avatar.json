@@ -1,0 +1,17 @@
+[
+    {
+      "hat": "HAT_BASEBALL_CAP",
+      "face": "FACE_SMILEY",
+      "body": "BODY_HUMAN",
+      "cape": "CAPE_SUPERHERO_CAPE",
+      "unlockedItems": ["HAT_WIZARD_HAT", "FACE_NEUTRAL"]
+    },
+ {
+      "hat": "HAT_TOP_HAT",
+      "face": "FACE_SAD",
+      "body": "BODY_ALIEN",
+      "cape": "NONE",
+      "unlockedItems": ["HAT_BASEBALL_CAP", "BODY_ROBOT"]
+    }
+  ]
+  

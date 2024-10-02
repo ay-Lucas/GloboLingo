@@ -1,0 +1,30 @@
+[
+    {
+        "title": "Basics",
+        "subject": "Spanish",
+        "difficulty": 1,
+        "lessons": [
+            {
+                "name": "Greetings",
+                "isComplete": true
+            }
+        ],
+        "isComplete": true,
+        "userScore": 80,
+        "maxScore": 100
+    },
+    {
+        "title": "Verbs",
+        "subject": "Spanish",
+        "difficulty": 2,
+        "lessons": [
+            {
+                "name": "Verb Conjugation",
+                "isComplete": false
+            }
+        ],
+        "isComplete": false,
+        "userScore": 70,
+        "maxScore": 100
+    }
+]

@@ -1,0 +1,12 @@
+[
+  {
+      "type": "MultipleChoice",
+      "options": ["Hola", "Hello", "Bonjour"],
+      "answer": 1
+  },
+  {
+      "type": "Flashcard",
+      "prompt": "What is the French word for 'Hello'?",
+      "answer": "Bonjour"
+  }
+]

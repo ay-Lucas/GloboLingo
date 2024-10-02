@@ -1,0 +1,22 @@
+[
+  {
+      "progress": [
+          {
+              "course": "Spanish",
+              "completedSections": 3,
+              "completedLessons": 6,
+              "nextLootCrateAt": 12
+          }
+      ]
+  },
+  {
+      "progress": [
+          {
+              "course": "French",
+              "completedSections": 2,
+              "completedLessons": 4,
+              "nextLootCrateAt": 8
+          }
+      ]
+  }
+]
