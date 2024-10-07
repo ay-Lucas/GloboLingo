@@ -1,5 +1,3 @@
-package globolingo;
-
 public class Hard extends State  {
     
     private int multipleChoiceQuestions = 6;

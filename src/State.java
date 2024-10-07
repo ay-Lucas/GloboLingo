@@ -1,5 +1,3 @@
-package globolingo;
-
 public class State  {
     
         // Maybe nitpicky, but since more than just multiplechoice questions, this may need reworking

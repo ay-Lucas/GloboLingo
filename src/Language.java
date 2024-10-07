@@ -1,5 +1,3 @@
-package globolingo;
-
 public enum Language  {
     SPANISH;
 

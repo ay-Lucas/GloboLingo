@@ -1,5 +1,3 @@
-package globolingo;
-
 public class Cape implements Item  {
 
     private File file;

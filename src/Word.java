@@ -1,5 +1,3 @@
-package globolingo;
-
 public class Word  {
     
     private Language language;

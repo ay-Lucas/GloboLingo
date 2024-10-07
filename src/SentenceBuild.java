@@ -1,5 +1,3 @@
-package globolingo;
-
 public class SentenceBuild implements Question {
     
     private Phrase sentence;

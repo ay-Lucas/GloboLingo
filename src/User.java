@@ -1,5 +1,3 @@
-package globolingo;
-
 /**
  * A User
  * 

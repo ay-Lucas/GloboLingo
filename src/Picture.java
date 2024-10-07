@@ -1,5 +1,3 @@
-package globolingo;
-
 public class Picture {
     
     private File file;

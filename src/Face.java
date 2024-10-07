@@ -1,5 +1,3 @@
-package globolingo;
-
 public class Face implements Item  {
 
     private File file;

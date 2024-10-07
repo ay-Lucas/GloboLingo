@@ -1,5 +1,3 @@
-package globolingo;
-
 public class DataWriter  {
         // No private variables in UML
     private UserList userList;

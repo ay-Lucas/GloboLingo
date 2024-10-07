@@ -1,5 +1,3 @@
-package globolingo;
-
 public class MultipleChoice implements Question  {
         // Likely will need ot be updated to arraylist in class and UML
     private Phrase options;

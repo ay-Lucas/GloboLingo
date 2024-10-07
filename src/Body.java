@@ -1,5 +1,3 @@
-package globolingo;
-
 public class Body implements Item  {
 
     private File file;

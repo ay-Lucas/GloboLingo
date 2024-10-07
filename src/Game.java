@@ -1,5 +1,3 @@
-package globolingo;
-
 public class Game  {
 
     private State state;

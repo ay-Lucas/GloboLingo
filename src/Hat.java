@@ -1,5 +1,3 @@
-package globolingo;
-
 public class Hat implements Item  {
 
     private File file;

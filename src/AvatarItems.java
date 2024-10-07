@@ -1,5 +1,3 @@
-package globolingo;
-
 public enum AvatarItems  {
     HAT_BASEBALL_CAP,
     HAT_WIZARD_HAT,

@@ -1,5 +1,3 @@
-package globolingo;
-
 import java.util.ArrayList;
 
 public class Phrase {

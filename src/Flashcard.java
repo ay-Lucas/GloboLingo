@@ -1,5 +1,3 @@
-package globolingo;
-
 public class Flashcard implements Question  {
     private Word prompt;
     
