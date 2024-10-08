@@ -8,25 +8,34 @@ public class Progress {
 
         // Constructor not in UML
     public Progress(Course course)  {
-
+        this.setCourse(course);
     }
 
     public String viewProgress()  {
-
+        //TODO this needs to be either removed or made better functional?
+        // temp implementation
+        return this.completedSections.size()+1 +" out of "+course.getSections().size()+
+            " sections completed, "+this.getCompletionPercentage()+"% of course completed. ";
     }
 
-    public Item awardLootCrateForLevelUp()  {
-
+    public LootCrate awardLootCrateForLevelUp()  {
+        //TODO figure this out at some point
+        // temp implementation
+        LootCrate crate = new LootCrate();
+        return crate;
     }
 
-    public float getCompletionPercentage()  {
-
+    public int getCompletionPercentage()  {
+        int total = course.getSections().size();
+        int completed = this.completedSections.size();
+        int perc = ( total / completed * 100);
+        return perc;
     }
 
     public int getNextLootCraftProgress()  { return nextLootCrateAt; }
 
     public void completeSection(Section section)  {
-        
+        completedSections.add(section);
     }
 
     // Getters not present in UML
@@ -39,7 +48,7 @@ public class Progress {
     // These setters not present in UML
 
     public void setCourse(Course course)  {
-
+        this.course = course;
     }
 
     public void setCompletedSections(ArrayList<Section> sections)  {
