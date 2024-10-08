@@ -1,0 +1,86 @@
+[
+  {
+    "word": "Hola",
+    "type": "Flashcard",
+    "prompt": "How do you greet someone in Spanish?",
+    "answer": "Hola",
+    "isCorrect": true,
+    "getAnswer": "Hola"
+  },
+  {
+    "dictionary": "A book of Spanish words and meanings",
+    "phrase": "Buenos días",
+    "lesson": "Greetings",
+    "section": "Basics",
+    "course": "Beginner Spanish",
+    "languages": "Spanish"
+  },
+  {
+    "word": "Bonjour",
+    "type": "Matching",
+    "prompt": "Match the French greeting to its English translation",
+    "pairs": [{"Bonjour": "Hello"}],
+    "answer": "Hello",
+    "isCorrect": true,
+    "getAnswer": "Hello",
+    "picture": "bonjour_image.png"
+  },
+  {
+    "dictionary": "A book of French words and meanings",
+    "phrase": "Comment ça va?",
+    "lesson": "Greetings",
+    "section": "Basics",
+    "course": "Beginner French",
+    "languages": "French"
+  },
+  {
+    "word": "Hallo",
+    "type": "MultipleChoice",
+    "prompt": "How do you greet someone in German?",
+    "options": ["Hallo", "Adios", "Ciao"],
+    "answerIndex": 0,
+    "answer": "Hallo",
+    "isCorrect": true,
+    "getAnswer": "Hallo",
+    "phrase": "Guten Tag"
+  },
+  {
+    "dictionary": "A book of German words and meanings",
+    "lesson": "Greetings",
+    "section": "Basics",
+    "course": "Beginner German",
+    "languages": "German"
+  },
+  {
+    "word": "Ciao",
+    "type": "SentenceBuild",
+    "sentence": "Ciao come stai?",
+    "answer": "Ciao",
+    "isCorrect": true,
+    "getAnswer": "Ciao"
+  },
+  {
+    "dictionary": "A book of Italian words and meanings",
+    "phrase": "Buongiorno",
+    "lesson": "Greetings",
+    "section": "Basics",
+    "course": "Beginner Italian",
+    "languages": "Italian"
+  },
+  {
+    "word": "Konnichiwa",
+    "type": "Flashcard",
+    "prompt": "How do you greet someone in Japanese?",
+    "answer": "Konnichiwa",
+    "isCorrect": true,
+    "getAnswer": "Konnichiwa"
+  },
+  {
+    "dictionary": "A book of Japanese words and meanings",
+    "phrase": "Ohayō gozaimasu",
+    "lesson": "Greetings",
+    "section": "Basics",
+    "course": "Beginner Japanese",
+    "languages": "Japanese"
+  }
+]

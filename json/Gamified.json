@@ -1,0 +1,53 @@
+[
+    {
+        "itemName": "HAT_WIZARD_HAT",
+        "itemType": "Hat",
+        "rarity": "Rare",
+        "nextLootCrateAt": 10,
+        "unlockedItems": ["FACE_NEUTRAL", "BODY_HUMAN"]
+    },
+    {
+        "itemName": "CAPE_SUPERHERO_CAPE",
+        "itemType": "Cape",
+        "rarity": "Epic",
+        "nextLootCrateAt": 15,
+        "unlockedItems": ["FACE_SMILEY", "BODY_ALIEN"]
+    },
+    {
+        "itemName": "HAT_TOP_HAT",
+        "itemType": "Hat",
+        "rarity": "Common",
+        "nextLootCrateAt": 5,
+        "unlockedItems": ["FACE_HAPPY", "BODY_HUMAN"]
+    },
+    {
+        "itemName": "CAPE_VAMPIRE_CAPE",
+        "itemType": "Cape",
+        "rarity": "Legendary",
+        "nextLootCrateAt": 20,
+        "unlockedItems": ["FACE_SAD", "BODY_VAMPIRE"]
+    },
+    {
+        "itemName": "BODY_ROBOT",
+        "itemType": "Body",
+        "rarity": "Ultra Rare",
+        "nextLootCrateAt": 25,
+        "unlockedItems": ["FACE_NEUTRAL", "HAT_ROBOT_HELMET"]
+    },
+    {
+        "itemName": "HAT_BASEBALL_CAP",
+        "itemType": "Hat",
+        "rarity": "Common",
+        "nextLootCrateAt": 8,
+        "unlockedItems": ["FACE_HAPPY", "BODY_HUMAN"]
+    },
+    {
+        "availableItems": ["HAT_BASEBALL_CAP", "CAPE_SUPERHERO_CAPE", "BODY_ALIEN"],
+        "openedItem": "HAT_BASEBALL_CAP"
+    },
+    {
+        "availableItems": ["HAT_WIZARD_HAT", "FACE_SAD", "CAPE_VAMPIRE_CAPE"],
+        "openedItem": "FACE_SAD"
+    }
+    
+]
