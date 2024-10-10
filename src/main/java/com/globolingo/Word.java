@@ -1,36 +1,54 @@
 package com.globolingo;
-public class Word  {
-    
+public class Word implements Item {
     private Language language;
     private String englishWord;
     private String translation;
     private String definition;
+    private String type;
+    private String prompt;
 
-        // No constructor in UML
-    public Word(Language language, String englishWord, String translation, String definition) {
-
+    public Word(Language language, String englishWord, String translation, String definition, String type, String prompt) {
+        this.language = language;
+        this.englishWord = englishWord;
+        this.translation = translation;
+        this.definition = definition;
+        this.type = type;
+        this.prompt = prompt;
     }
 
-    public String getWord()  { return this.englishWord; }
-
-    public String getTranslation() { return this.translation; }
-    
-    public String getDefinition()  { return this.definition; }
-
-        // No setters in UML, adding here
-    public void setLanguage(Language language)  {
-
+    public Language getLanguage() {
+        return language;
     }
 
-    public void setEnglishWord(String word)  {
-
+    public String getEnglishWord() {
+        return englishWord;
     }
 
-    public void setTranslation(String translation)  {
-
+    public String getTranslation() {
+        return translation;
     }
 
-    public void setDefinition(String definition)  {
+    public String getDefinition() {
+        return definition;
+    }
 
+    public String getType() {
+        return type;
+    }
+
+    public String getPrompt() {
+        return prompt;
+    }
+
+    public String getItemType() {
+        return "Word";
+    }
+
+    public String getItemName() {
+        return englishWord;
+    }
+
+    public String getRarity() {
+        return "Common";
     }
 }
