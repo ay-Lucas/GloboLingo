@@ -2,23 +2,35 @@ package com.globolingo;
 import java.util.ArrayList;
 
 public class ProgressList {
-    private ArrayList<Progress> progress;
-    private static ProgressList progresslist;
+    private ArrayList<Progress> progressList;
+    private static ProgressList instance = null;
 
     private ProgressList() {
-
+        progressList = new ArrayList<>();
     }
 
     public static ProgressList getInstance() {
-
+        if (instance == null) {
+            instance = new ProgressList();
+        }
+        return instance;
     }
 
-    public void addProgress(String username) {
-
+    public Progress getUser(String username) {
+        for (Progress progress : progressList) {
+            if (progress.getCourse().getUser().getUsername().equals(username)) {
+                return progress;
+            }
+        }
+        return null;
     }
 
-    public User getUser(String username) {
+    public void addProgress(Progress progress) {
+        progressList.add(progress);
+    }
 
+    public ArrayList<Progress> getProgressList() {
+        return progressList;
     }
 
     public void editUser() {
@@ -29,9 +41,9 @@ public class ProgressList {
 
     }
 
-    public double getOverallProgress() {
+    //public double getOverallProgress() {
 
-    }
+    //}
 
     public void save() {
 
