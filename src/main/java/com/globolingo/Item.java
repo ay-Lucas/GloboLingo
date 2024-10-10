@@ -1,5 +1,7 @@
 package com.globolingo;
+
 public interface Item {
-    
-    public String getItemtype();
+    String getItemType();
+    String getItemName();
+    String getRarity();
 }
