@@ -1,4 +1,7 @@
 package com.globolingo;
+
+import java.util.UUID;
+
 /**
  * A User
  * 
