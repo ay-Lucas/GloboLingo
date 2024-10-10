@@ -1,63 +1,150 @@
 package com.globolingo;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.List;
 
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
+
+/**
+ * The DataLoader class is responsible for loading user, progress, language, and gamified information
+ * from JSON files and displaying it in a readable format.
+ */
 public class DataLoader {
-
-    private UserList userList;
-    private ProgressList progressList;
-
-    // Constant for the user and progress file paths
-    private static final String USER_FILE = "./json/User.json"; 
-    private static final String PROGRESS_FILE = "./json/Progress.json"; 
-
-    // Constructor
-    public DataLoader() {
-        userList = UserList.getInstance();
-        progressList = ProgressList.getInstance();
+    
+    /**
+     * Retrieves the singleton instance of UserList.
+     *
+     * @return the instance of UserList
+     */
+    public static UserList getUserList() {
+        return UserList.getInstance();
     }
 
-    // Method to get the list of users from the JSON file
-    public UserList getUserList() {
-        List<User> users;
-        Gson gson = new Gson();
-
-        try (FileReader reader = new FileReader(USER_FILE)) {
-            // Deserialize the JSON file into a List<User>
-            users = gson.fromJson(reader, new TypeToken<List<User>>() {}.getType());
-            userList.setUsers(users);  // Assuming UserList has a method to set users
-        } catch (IOException e) {
-            e.printStackTrace();  // Print any IO exceptions
-        }
-
-        return userList;  // Return the list of users
+    /**
+     * Retrieves the singleton instance of ProgressList.
+     *
+     * @return the instance of ProgressList
+     */
+    public static ProgressList getProgressList() {
+        return ProgressList.getInstance();
     }
 
-    // Method to get the progress list
-    public ProgressList getProgressList() {
-        // For simplicity, we’ll skip loading progress from a file for now
-        return this.progressList;
-    }
-
-    // Main method to run DataLoader
+    /**
+     * The main method that initiates the loading and displaying of information.
+     *
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
-        DataLoader dataLoader = new DataLoader();
+        loadAndDisplayUserInfo();
+        loadAndDisplayProgressInfo();
+        loadAndDisplayLanguageInfo();
+        loadAndDisplayGamifiedInfo();
+    }
 
-        // Load user list and display
-        UserList userList = dataLoader.getUserList();
-        System.out.println("Loaded Users:");
-        for (User user : userList.getUsers()) {
-            System.out.println("Username: " + user.getName());
-            System.out.println("First Name: " + user.getFirstName());
-            System.out.println("Last Name: " + user.getLastName());
-            System.out.println("Level: " + user.getLevel());
-            System.out.println("UUID: " + user.getUUID());
-            System.out.println("---------");
+    /**
+     * Loads user information from the User.json file and displays it in the console.
+     */
+    private static void loadAndDisplayUserInfo() {
+        System.out.println("User Information:");
+        JSONParser parser = new JSONParser();
+        try (FileReader reader = new FileReader("json/User.json")) {
+            JSONArray userArray = (JSONArray) parser.parse(reader);
+            for (Object obj : userArray) {
+                JSONObject userJson = (JSONObject) obj;
+                System.out.println("Username: " + userJson.get("username"));
+                System.out.println("Name: " + userJson.get("firstName") + " " + userJson.get("lastName"));
+                System.out.println("Password: " + userJson.get("password"));
+                System.out.println("Level: " + userJson.get("level"));
+                System.out.println("UUID: " + userJson.get("UUID"));
+                System.out.println("Completed Sections: " + userJson.get("completedSections"));
+                System.out.println("Completed Lessons: " + userJson.get("completedLessons"));
+                System.out.println("Next Loot Crate At: " + userJson.get("nextLootCrateAt"));
+                System.out.println("Logged In: " + userJson.getOrDefault("LoggedIn", false));
+                System.out.println("--------------------");
+            }
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
         }
+    }
 
-        // Placeholder for progress list loading
-        ProgressList progressList = dataLoader.getProgressList();
-        System.out.println("Progress List loaded (not yet implemented fully).");
+    /**
+     * Loads progress information from the User.json file and displays it in the console.
+     */
+    private static void loadAndDisplayProgressInfo() {
+        System.out.println("\nProgress Information:");
+        JSONParser parser = new JSONParser();
+        try (FileReader reader = new FileReader("json/User.json")) {
+            JSONArray userArray = (JSONArray) parser.parse(reader);
+            for (Object obj : userArray) {
+                JSONObject userJson = (JSONObject) obj;
+                System.out.println("User: " + userJson.get("username"));
+                System.out.println("Completed Sections: " + userJson.get("completedSections"));
+                System.out.println("Completed Lessons: " + userJson.get("completedLessons"));
+                System.out.println("Next Loot Crate At: " + userJson.get("nextLootCrateAt"));
+                System.out.println("--------------------");
+            }
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Loads language information from the Language.json file and displays it in the console.
+     */
+    private static void loadAndDisplayLanguageInfo() {
+        System.out.println("\nLanguage Information:");
+        JSONParser parser = new JSONParser();
+        try (FileReader reader = new FileReader("json/Language.json")) {
+            JSONArray languageArray = (JSONArray) parser.parse(reader);
+            for (Object obj : languageArray) {
+                JSONObject languageJson = (JSONObject) obj;
+                System.out.println("Word: " + languageJson.get("word"));
+                System.out.println("Type: " + languageJson.get("type"));
+                System.out.println("Options: " + languageJson.getOrDefault("options", "N/A"));
+                System.out.println("Answer Index: " + languageJson.getOrDefault("answerIndex", "N/A"));
+                System.out.println("Prompt: " + languageJson.get("prompt"));
+                System.out.println("Answer: " + languageJson.get("answer"));
+                System.out.println("Is Correct: " + languageJson.get("isCorrect"));
+                System.out.println("Get Answer: " + languageJson.get("getAnswer"));
+                System.out.println("Dictionary: " + languageJson.get("dictionary"));
+                System.out.println("Phrase: " + languageJson.get("phrase"));
+                System.out.println("Translation: " + languageJson.get("translation")); // Fixed typo
+                System.out.println("Lesson: " + languageJson.get("lesson"));
+                System.out.println("Section: " + languageJson.get("section"));
+                System.out.println("Course: " + languageJson.get("course"));
+                System.out.println("Languages: " + languageJson.get("languages"));
+                System.out.println("Pairs: " + languageJson.getOrDefault("pairs", "N/A"));
+                System.out.println("Picture: " + languageJson.getOrDefault("picture", "N/A"));
+                System.out.println("--------------------");
+            }
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * Loads gamified information from the Gamified.json file and displays it in the console.
+     */
+    private static void loadAndDisplayGamifiedInfo() {
+        System.out.println("\nGamified Information:");
+        JSONParser parser = new JSONParser();
+        try (FileReader reader = new FileReader("json/Gamified.json")) {
+            JSONArray gamifiedArray = (JSONArray) parser.parse(reader);
+            for (Object obj : gamifiedArray) {
+                JSONObject gamifiedJson = (JSONObject) obj;
+                System.out.println("Item Name: " + gamifiedJson.get("itemName"));
+                System.out.println("Item Type: " + gamifiedJson.get("itemType"));
+                System.out.println("Rarity: " + gamifiedJson.get("rarity"));
+                System.out.println("Next Loot Crate At: " + gamifiedJson.get("nextLootCrateAt"));
+                System.out.println("Unlocked Items: " + gamifiedJson.get("unlockedItems"));
+                System.out.println("Opened Item: " + gamifiedJson.get("openedItem"));
+                System.out.println("Available Items: " + gamifiedJson.get("availableItems"));
+                System.out.println("--------------------");
+            }
+        } catch (IOException | ParseException e) {
+            e.printStackTrace();
+        }
     }
 }
