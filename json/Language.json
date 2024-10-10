@@ -5,11 +5,10 @@
     "prompt": "How do you greet someone in Spanish?",
     "answer": "Hola",
     "isCorrect": true,
-    "getAnswer": "Hola"
-  },
-  {
+    "getAnswer": "Hola",
     "dictionary": "A book of Spanish words and meanings",
-    "phrase": "Buenos días",
+    "phrase": "Buenos dias",
+    "Translation": "Good morning",
     "lesson": "Greetings",
     "section": "Basics",
     "course": "Beginner Spanish",
@@ -23,11 +22,10 @@
     "answer": "Hello",
     "isCorrect": true,
     "getAnswer": "Hello",
-    "picture": "bonjour_image.png"
-  },
-  {
+    "picture": "bonjour_image.png",
     "dictionary": "A book of French words and meanings",
     "phrase": "Comment ça va?",
+    "Translation": "How are you?",
     "lesson": "Greetings",
     "section": "Basics",
     "course": "Beginner French",
@@ -42,9 +40,8 @@
     "answer": "Hallo",
     "isCorrect": true,
     "getAnswer": "Hallo",
-    "phrase": "Guten Tag"
-  },
-  {
+    "phrase": "Guten Tag",
+    "Translation": "Good day",
     "dictionary": "A book of German words and meanings",
     "lesson": "Greetings",
     "section": "Basics",
@@ -54,14 +51,12 @@
   {
     "word": "Ciao",
     "type": "SentenceBuild",
-    "sentence": "Ciao come stai?",
+    "prompt": "____ come stai?",
     "answer": "Ciao",
     "isCorrect": true,
-    "getAnswer": "Ciao"
-  },
-  {
+    "getAnswer": "Ciao",
     "dictionary": "A book of Italian words and meanings",
-    "phrase": "Buongiorno",
+    "phrase": "Ciao come stai?",
     "lesson": "Greetings",
     "section": "Basics",
     "course": "Beginner Italian",
@@ -73,11 +68,10 @@
     "prompt": "How do you greet someone in Japanese?",
     "answer": "Konnichiwa",
     "isCorrect": true,
-    "getAnswer": "Konnichiwa"
-  },
-  {
+    "getAnswer": "Konnichiwa",
     "dictionary": "A book of Japanese words and meanings",
     "phrase": "Ohayō gozaimasu",
+    "translation": "Good morning there",
     "lesson": "Greetings",
     "section": "Basics",
     "course": "Beginner Japanese",
