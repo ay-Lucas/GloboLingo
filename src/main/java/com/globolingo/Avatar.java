@@ -1,62 +1,52 @@
 package com.globolingo;
-import java.util.ArrayList;
 
-public class Avatar  {
+/**
+ * An Avatar
+ * 
+ * @author Lucas A
+ */
+public class Avatar {
+    private final String name;
+    private final String path;
+    private final boolean isDefault;
 
-    private Item hat;
-    private Item face;
-    private Item body;
-    private Item cape;
-        // listed as List<Item> in UML, should be arraylist?
-    private ArrayList<Item> unlockedItems;
-
-    public Avatar(Item hat, Item face, Item body, Item cape)  {
-
+    /**
+     * Creates a new Avatar
+     * 
+     * @param name
+     * @param path
+     * @param isDefault
+     */
+    public Avatar(String name, String path, boolean isDefault) {
+        this.name = name;
+        this.path = path;
+        this.isDefault = isDefault;
     }
 
-        // No getters in UML adding here
-    public Item getHat()  { return this.hat; }
-    
-    public Item getFace()  { return this.face; }
-
-    public Item getBody()  { return this.body; }
-
-    public Item getCape()  { return this.cape; }
-
-        // No setters in UML, adding here
-    public void setHat(Item hat)  {
-
+    /**
+     * Returns true if Avatar isDefault
+     * 
+     * @return boolean
+     */
+    public boolean isDefault() {
+        return isDefault;
     }
 
-    public void setFace(Item face)  {
-
+    /**
+     * Gets path of Avatar
+     * 
+     * @return String path
+     */
+    public String getPath() {
+        return path;
     }
 
-    public void setBody(Item body)  {
-
+    /**
+     * Gets Java Name
+     * 
+     * @return String name
+     */
+    public String getName() {
+        return name;
     }
-
-    public void setCape(Item cape)  {
-
-    }
-
-    public void customizeAvatar(Item hat, Item face, Item body, Item cape)  {
-
-    }
-    
-    public void unlockItem(Item item)  {
-
-    }
-
-    public ArrayList<Item> viewUnlockedItems() { return this.unlockedItems; }
-
-    public void equipItem(Item item)  {
-
-    }
-
-    public String getAvatarDetails() {
-        
-    }
-
-    
 }
