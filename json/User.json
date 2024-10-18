@@ -8,7 +8,12 @@
         "UUID": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
         "completedSections": 3,
         "completedLessons": 6,
-        "nextLootCrateAt": 10
+        "nextLootCrateAt": 10,
+        "loggedIn": false,
+        "avatar": {
+            "name": "Basic Bobby",
+            "unlocked": ["Ice Hunter"]
+        }
     },
     {
         "username": "amySmith",
@@ -20,7 +25,11 @@
         "completedSections": 5,
         "completedLessons": 8,
         "nextLootCrateAt": 15,
-        "LoggedIn": true
+        "loggedIn": true,
+        "avatar": {
+            "name": "Red Wolf",
+            "unlocked": ["Thunder Claw"]
+        }
     },
     {
         "username": "johnDoe",
@@ -32,7 +41,11 @@
         "completedSections": 2,
         "completedLessons": 4,
         "nextLootCrateAt": 5,
-        "LoggedIn": false
+        "loggedIn": false,
+        "avatar": {
+            "name": "Potatoe Rider",
+            "unlocked": ["Shadow Strike"]
+        }
     },
     {
         "username": "janeDoe",
@@ -44,7 +57,11 @@
         "completedSections": 6,
         "completedLessons": 12,
         "nextLootCrateAt": 20,
-        "LoggedIn": true
+        "loggedIn": true,
+        "avatar": {
+            "name": "Blue Fang",
+            "unlocked": ["Night Rider"]
+        }
     },
     {
         "username": "mikeBrown",
@@ -56,7 +73,11 @@
         "completedSections": 8,
         "completedLessons": 16,
         "nextLootCrateAt": 25,
-        "LoggedIn": false
+        "loggedIn": false,
+        "avatar": {
+            "name": "Sky Flame",
+            "unlocked": ["Storm Wing"]
+        }
     },
     {
         "username": "saraGreen",
@@ -68,6 +89,10 @@
         "completedSections": 4,
         "completedLessons": 9,
         "nextLootCrateAt": 15,
-        "LoggedIn": true
+        "loggedIn": true,
+        "avatar": {
+            "name": "Sky Rider",
+            "unlocked": ["Keyboard Warrior"]
+        }
     }
 ]
