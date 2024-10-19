@@ -69,7 +69,7 @@ public class User {
      * @return Progress
      */
     public Progress getProgress() {
-        return ProgressList.getInstance().getUser(this.username);
+        return ProgressList.getInstance().getProgress(this.username);
     }
 
     /**
@@ -171,7 +171,6 @@ public class User {
      * 
      * @param username
      */
-    //
     public void setUsername(String username) {
         if (username.length() < MIN_USERNAME_LENGTH || username.length() > MAX_USERNAME_LENGTH) {
             throw new Error("Invalid username length\n" + "Must be " + MIN_USERNAME_LENGTH + " – "
@@ -239,5 +238,24 @@ public class User {
      */
     public void setUUID(UUID uuid) {
         this.uuid = uuid;
+    }
+
+    /**
+     * Updates all user details at once.
+     * 
+     * @param firstName new first name
+     * @param lastName new last name
+     * @param password new password
+     * @param level new level
+     * @param avatar new avatar
+     * @param course new course
+     */
+    public void updateDetails(String firstName, String lastName, String password, int level, Avatar avatar, Course course) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setPassword(password);
+        setLevel(level);
+        setAvatar(avatar);
+        setCourse(course);
     }
 }
