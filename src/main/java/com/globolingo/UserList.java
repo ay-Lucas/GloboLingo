@@ -114,6 +114,22 @@ public class UserList {
     }
 
     /**
+ * Removes a user from the list.
+ *
+ * @param username the username of the user to be removed.
+ * @return true if the user was successfully removed, false otherwise.
+ */
+    public boolean removeUser(String username) {
+        User userToRemove = getUser(username);
+        if (userToRemove != null) {
+        users.remove(userToRemove);
+        System.out.println("User " + username + " has been removed.");
+        return true;
+    }
+    System.out.println("User " + username + " not found.");
+    return false;
+}
+    /**
      * Logs out the specified user.
      * 
      * @param user the user to be logged out.
