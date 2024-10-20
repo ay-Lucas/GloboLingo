@@ -80,6 +80,14 @@ public class UserList {
         return null;
     }
 
+    public Avatar getAvatar(String username) {
+        User user = getUser(username);
+        if (user != null) {
+            return user.getAvatar();
+        }
+        return null;
+    }
+
     /**
      * Searches for a user by their UUID.
      * 
