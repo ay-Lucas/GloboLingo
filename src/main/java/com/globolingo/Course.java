@@ -26,7 +26,12 @@ public class Course {
     }
 
     public void createLesson(String subject, int difficulty) {
-        // Implementation for creating a lesson
+        if (currentSection != null) {
+            Lesson newLesson = currentSection.generateLesson();
+            newLesson.setName(subject);
+            newLesson.setDifficulty(difficulty);
+            currentSection.getLessons().add(newLesson);
+        }
     }
     
     public Section viewSection() {
@@ -34,11 +39,28 @@ public class Course {
     }
 
     public void completeSection(Section section) {
-        // Implementation for completing a section
+        section.setCompletionStatus(true);
+        int totalScore = 0;
+        int maxScore = 0;
+        for (Lesson lesson : section.getLessons()) {
+            totalScore += lesson.getUserScore();
+            maxScore += lesson.getMaxScore();
+        }
+        section.setUserScore(totalScore);
+        section.setMaxScore(maxScore);
+        section.setSectionProgress(100);
     }
 
     public void aceSection(Section section) {
-        // Implementation for acing a section
+        section.setCompletionStatus(true);
+        int maxScore = 0;
+        for (Lesson lesson : section.getLessons()) {
+            lesson.setUserScore(lesson.getMaxScore());
+            maxScore += lesson.getMaxScore();
+        }
+        section.setUserScore(maxScore);
+        section.setMaxScore(maxScore);
+        section.setSectionProgress(100);
     }
     
     public Section nextSection() {
@@ -48,20 +70,13 @@ public class Course {
         }
         return null;
     }
-
-    public Item awardLootCrateForCompletion() {
-        // Implementation for awarding loot crate for completion
-        return null;
-    }
-
-    public Item awardLootCrateForAcing() {
-        // Implementation for awarding loot crate for acing
-        return null;
-    }
     
     public int viewResults() {
-        // Implementation for viewing results
-        return 0;
+        int totalScore = 0;
+        for (Section section : sections) {
+            totalScore += section.getUserScore();
+        }
+        return totalScore;
     }
 
     // Getters
