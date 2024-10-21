@@ -17,7 +17,10 @@ public class User {
     private Avatar avatar;
     private ArrayList<Avatar> unlockedAvatars;
     private Course course;
+    private Progress progress;
     private UUID uuid;
+    private boolean loggedIn;
+
     private ProgressList progressList;
 
     private final static int MIN_PASSWORD_LENGTH = 8;
@@ -77,6 +80,10 @@ public class User {
      */
     public ProgressList getProgressList() {
         return this.progressList;
+    }
+
+    public Progress getProgress() {
+        return this.progress;
     }
 
     /**
@@ -265,6 +272,14 @@ public class User {
         unlockedAvatars.add(avatar);
     }
 
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
+    }
+
+    public boolean isLoggedIn() {
+        return this.loggedIn;
+    }
+    
     /**
      * Updates all user details at once.
      * 
@@ -285,3 +300,4 @@ public class User {
         setCourse(course);
     }
 }
+
