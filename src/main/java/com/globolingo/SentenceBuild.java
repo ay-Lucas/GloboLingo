@@ -1,33 +1,56 @@
 package com.globolingo;
+
+
+/**
+ * @author Alexander Hughes
+ * This is the class for the Sentence Building question type
+ */
 public class SentenceBuild implements Question {
     
     private Phrase sentence;
 
+    /**
+     * Constructor
+     * @param sentence the Phrase of the sentence to be built
+     */
         // No constructor in UML
     public SentenceBuild(Phrase sentence)  {
-
+        this.setSentence(sentence);
     }
 
         // Getter not in UML
+    /**
+     * @return The sentence to be built
+     */
     public Phrase getSentence() { return this.sentence; }
-
+     
     @Override
     public String getAnswer()  {
-        throw new UnsupportedOperationException("Not supported yet.");
+        // Based on how this would function, we know that the sentence is the answer, so just going to cap this;
+        return this.sentence.getTranslation().toString();
     }
 
+    /**
+     * @param input String value of the input
+     * @return boolean, true if equal to string value of sentence.
+     */
     @Override
-    public boolean isCorrect() {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public boolean isCorrect(String input) {
+        return this.getAnswer().equalsIgnoreCase(input);
     }
 
+    
     @Override
     public void getUserInput() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //TODO Cannot properly implement without having UI or some other way of "selecting" from the words
     }
 
+    /**
+     * Sets the input phrase to the sentence
+     * @param phrase The phrase to be built
+     */
         // No setters in UML
     public void setSentence(Phrase phrase)  {
-
+        this.sentence = phrase;
     }
 }
