@@ -12,9 +12,15 @@ public class Section  {
     private int userScore;
     private int maxScore;
 
-        // No constructor in UML
     public Section(String title, String subject, int difficulty, ArrayList<Lesson> lessons, int userScore, int maxScore)  {
-
+        this.title = title;
+        this.subject = subject;
+        this.difficulty = difficulty;
+        this.lessons = lessons != null ? lessons : new ArrayList<>();
+        this.userScore = userScore;
+        this.maxScore = maxScore;
+        this.isComplete = false;
+        this.sectionProgress = 0;
     }
 
     public String getTitle()  { return this.title; }
@@ -29,43 +35,65 @@ public class Section  {
 
     public boolean getCompletionStatus()  { return this.isComplete; }
 
-        // These getters not present in UML
     public ArrayList<Lesson> getLessons()  { return this.lessons; }
 
     public int getSectionProgress()  { return this.sectionProgress; }
 
     public Lesson generateLesson()  { 
-
+        Lesson lesson = new Lesson("New Lesson", this.difficulty, new ArrayList<>(), 0, 0);
+        this.lessons.add(lesson);
+        return lesson;
     }
-        // No setters present 
-    public void setTitle(String title)  {
 
+    public void setTitle(String title)  {
+        this.title = title;
     }
     
     public void setSubject(String subject)  {
-
+        this.subject = subject;
     }
 
     public void setDifficulty(int difficulty)  {
-
+        this.difficulty = difficulty;
     }
 
     public void setUserScore(int userScore)  {
-
+        this.userScore = userScore;
     }
 
     public void setMaxScore(int maxScore)  {
-
+        this.maxScore = maxScore;
     }
     
     public void setCompletionStatus(boolean isComplete)  {
-
+        this.isComplete = isComplete;
     }
     
     public void setLessons(ArrayList<Lesson> lessons)  {
-
+        this.lessons = lessons;
     }
-    public void setSectionProgress(int sectionProgress)  {
 
+    public void setSectionProgress(int sectionProgress)  {
+        this.sectionProgress = sectionProgress;
+    }
+
+    // New methods added based on UML
+    public void addLesson(Lesson lesson) {
+        this.lessons.add(lesson);
+    }
+
+    public void removeLesson(Lesson lesson) {
+        this.lessons.remove(lesson);
+    }
+
+    public void calculateProgress() {
+        int completedLessons = 0;
+        for (Lesson lesson : lessons) {
+            if (lesson.getCompletionStatus()) {
+                completedLessons++;
+            }
+        }
+        this.sectionProgress = (completedLessons * 100) / lessons.size();
+        this.isComplete = (this.sectionProgress == 100);
     }
 }
