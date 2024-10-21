@@ -1,22 +1,26 @@
 package com.globolingo;
+
 import java.util.ArrayList;
+import java.util.Random;
 
-public class LootCrate  {
-    // labelled List<Item> in UML, may need change?
-    private ArrayList<Item> availableItems;
+public class LootCrate {
+    private Avatar avatarLoot;
 
-    public LootCrate()  {
-
-    }
-    
-    public Item openCrate()  {
-
+    public LootCrate() {
+        avatarLoot = getRandomAvatar();
     }
 
-    public Item generateRandomItem()  {
-
+    public Avatar openCrate() {
+        return avatarLoot;
     }
 
-    public ArrayList<Item> viewAvailableItems()  { return this.availableItems; }
-    
+    private Avatar getRandomAvatar() {
+        AvatarManager manager = new AvatarManager();
+        ArrayList<Avatar> avatars = manager.getCrateAvatars();
+        Random random = new Random();
+        int randomInt = random.nextInt(avatars.size());
+        Avatar randomAvatar = avatars.get(randomInt);
+
+        return randomAvatar;
+    }
 }
