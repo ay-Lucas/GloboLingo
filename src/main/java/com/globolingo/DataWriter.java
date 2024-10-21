@@ -115,7 +115,7 @@ public class DataWriter extends DataConstants {
         questionDetails.put("prompt", question.getPrompt());
         questionDetails.put("answer", question.getAnswer());
         questionDetails.put("isCorrect", question.isCorrect());
-
+    
         // Add other question-specific details based on the question type
         if (question.getType().equals("Matching")) {
             questionDetails.put("picture", question.getPicture());
@@ -126,15 +126,19 @@ public class DataWriter extends DataConstants {
             questionDetails.put("pairs", pairsArray);
         } else if (question.getType().equals("Multiple Choice")) {
             questionDetails.put("options", question.getOptions());
-            questionDetails.put("phrase", question.getPhrase());
+            
+            // Assuming "Phrase" is a subclass of "Question" and only some "Multiple Choice" questions have phrases
+            if (question instanceof Phrase) {
+                Phrase phrase = (Phrase) question;
+                questionDetails.put("phrase", phrase.getPhrase()); // Now you can safely call getPhrase()
+            }
         } else if (question.getType().equals("Flashcard")) {
-            questionDetails.put("phrase", question.getPhrase());
             questionDetails.put("translation", question.getTranslation());
         }
-
+    
         return questionDetails;
     }
-
+    
     private static boolean writeToFile(JSONArray jsonArray, String fileName) {
         try (FileWriter file = new FileWriter(fileName)) {
             file.write(jsonArray.toJSONString());
