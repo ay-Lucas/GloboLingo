@@ -1,4 +1,8 @@
 package com.globolingo;
+
+import java.util.ArrayList;
+import java.util.UUID;
+
 /**
  * A User
  * 
@@ -11,8 +15,14 @@ public class User {
     private String password;
     private int level;
     private Avatar avatar;
+    private ArrayList<Avatar> unlockedAvatars;
     private Course course;
+    private Progress progress;
     private UUID uuid;
+    private boolean loggedIn;
+
+    private ProgressList progressList;
+
     private final static int MIN_PASSWORD_LENGTH = 8;
     private final static int MAX_PASSWORD_LENGTH = 64;
     private final static int MIN_USERNAME_LENGTH = 4;
@@ -30,6 +40,7 @@ public class User {
         setUsername(username);
         setFirstName(firstName);
         setLastName(lastName);
+        unlockedAvatars = new ArrayList<>();
     }
 
     /**
@@ -43,6 +54,7 @@ public class User {
         setPassword(password);
         setFirstName(firstName);
         setLastName(lastName);
+        unlockedAvatars = new ArrayList<>();
     }
 
     /**
@@ -56,17 +68,22 @@ public class User {
         setUsername(username);
         setPassword(password);
         this.uuid = uuid;
+        unlockedAvatars = new ArrayList<>();
     }
 
     // Getters
 
     /**
-     * Gets User's progress
+     * Gets User's Progress List
      * 
      * @return Progress
      */
+    public ProgressList getProgressList() {
+        return this.progressList;
+    }
+
     public Progress getProgress() {
-        return ProgressList.getInstance().getUser(this.username);
+        return this.progress;
     }
 
     /**
@@ -168,7 +185,6 @@ public class User {
      * 
      * @param username
      */
-    //
     public void setUsername(String username) {
         if (username.length() < MIN_USERNAME_LENGTH || username.length() > MAX_USERNAME_LENGTH) {
             throw new Error("Invalid username length\n" + "Must be " + MIN_USERNAME_LENGTH + " – "
@@ -237,4 +253,51 @@ public class User {
     public void setUUID(UUID uuid) {
         this.uuid = uuid;
     }
+
+    /**
+     * Gets an ArrayList of Avatars
+     * 
+     * @return ArrayList of Avatars
+     */
+    public ArrayList<Avatar> getUnlockedAvatars() {
+        return unlockedAvatars;
+    }
+
+    /**
+     * Add an avatar to the User's unlockedAvatars
+     * 
+     * @param avatar
+     */
+    public void addUnlockedAvatar(Avatar avatar) {
+        unlockedAvatars.add(avatar);
+    }
+
+    public void setLoggedIn(boolean loggedIn) {
+        this.loggedIn = loggedIn;
+    }
+
+    public boolean isLoggedIn() {
+        return this.loggedIn;
+    }
+    
+    /**
+     * Updates all user details at once.
+     * 
+     * @param firstName new first name
+     * @param lastName  new last name
+     * @param password  new password
+     * @param level     new level
+     * @param avatar    new avatar
+     * @param course    new course
+     */
+    public void updateDetails(String firstName, String lastName, String password, int level, Avatar avatar,
+            Course course) {
+        setFirstName(firstName);
+        setLastName(lastName);
+        setPassword(password);
+        setLevel(level);
+        setAvatar(avatar);
+        setCourse(course);
+    }
 }
+
