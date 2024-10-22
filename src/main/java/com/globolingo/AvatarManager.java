@@ -1,6 +1,7 @@
 package com.globolingo;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -139,4 +140,21 @@ public class AvatarManager {
         return availableAvatars;
     }
 
+    /**
+     * Gets avatar with matching name by iterating over all avatars contained in the
+     * avatar list
+     * 
+     * @param name of Avatar
+     * @return null or Avatar
+     */
+    public Avatar getAvatar(String name) {
+        Iterator<Avatar> iterator = avatars.iterator();
+        while (iterator.hasNext()) {
+            Avatar next = iterator.next();
+            if (next.getName().equals(name)) {
+                return next;
+            }
+        }
+        return null;
+    }
 }
