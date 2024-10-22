@@ -1,33 +1,38 @@
 package com.globolingo;
 
 public class DataConstants {
-
     // File paths
-    public static final String USER_FILE_NAME = "json/User.json";
-    public static final String LANGUAGE_FILE_NAME = "json/Language.json";
-
-    // JSON keys for User
-    public static final String USER_USERNAME = "username";
-    public static final String USER_FIRST_NAME = "firstName";
-    public static final String USER_LAST_NAME = "lastName";
-    public static final String USER_PASSWORD = "password";
-    public static final String USER_LEVEL = "level";
-    public static final String USER_UUID = "UUID";
-    public static final String USER_AVATAR = "avatar";
-    public static final String USER_UNLOCKED_AVATARS = "unlocked";
+    protected static final String LANGUAGE_FILE_PATH = "json/Language.json";
 
     // JSON keys for Progress
-    public static final String PROGRESS_COMPLETED_SECTIONS = "completedSections";
-    public static final String PROGRESS_COMPLETED_LESSONS = "completedLessons";
-    public static final String PROGRESS_NEXT_LOOT_CRATE_AT = "nextLootCrateAt";
-    public static final String PROGRESS_COURSE = "course";
+    protected static final String PROGRESS_COMPLETED_SECTIONS = "completedSections";
+    protected static final String PROGRESS_COMPLETED_LESSONS = "completedLessons";
+    protected static final String PROGRESS_NEXT_LOOT_CRATE_AT = "nextLootCrateAt";
+    protected static final String PROGRESS_COURSE = "course";
 
     // JSON keys for Course
-    public static final String COURSE_NAME = "courseName";
-    public static final String COURSE_LANGUAGE = "language";
-    public static final String COURSE_COMPLETED_SECTIONS = "completedSections";
+    protected static final String COURSE_NAME = "courseName";
+    protected static final String COURSE_LANGUAGE = "language";
+    protected static final String COURSE_COMPLETED_SECTIONS = "completedSections";
 
     // JSON keys for Section (used inside Progress and Course)
-    public static final String SECTION_TITLE = "title";
-    public static final String SECTION_SUBJECT = "subject";
+    protected static final String SECTION_TITLE = "title";
+    protected static final String SECTION_SUBJECT = "subject";
+
+    // JSON keys for User
+    protected static final String USER_FILE_PATH = "json/User.json";
+    protected static final String USER_USERNAME = "username";
+    protected static final String USER_PASSWORD = "password";
+    protected static final String USER_UUID = "UUID";
+    protected static final String USER_FIRSTNAME = "firstName";
+    protected static final String USER_LASTNAME = "lastName";
+    protected static final String USER_LOGGIN_IN = "loggedIn";
+    protected static final String USER_LEVEL = "level";
+    protected static final String USER_AVATAR = "avatar";
+    protected static final String USER_AVATAR_NAME = "name";
+    protected static final String USER_AVATAR_UNLOCKED = "unlocked";
+    protected static final String USER_PROGRESS = "progress";
+    protected static final String USER_PROGRESS_COMPLETED_SECTIONS = "completedSections";
+    protected static final String USER_PROGRESS_COMPLETED_LESSONS = "completedLessons";
+    protected static final String USER_PROGRESS_NEXT_LOOT_CRATE_AT = "nextLootCrateAt";
 }
