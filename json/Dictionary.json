@@ -1,0 +1,307 @@
+[
+  {
+    "english": "hello",
+    "translation": "hola",
+    "subject": "greeting"
+  },
+  {
+    "english": "goodbye",
+    "translation": "adiós",
+    "subject": "greeting"
+  },
+  {
+    "english": "please",
+    "translation": "por favor",
+    "subject": "politeness"
+  },
+  {
+    "english": "thank you",
+    "translation": "gracias",
+    "subject": "politeness"
+  },
+  {
+    "english": "yes",
+    "translation": "sí",
+    "subject": "response"
+  },
+  {
+    "english": "no",
+    "translation": "no",
+    "subject": "response"
+  },
+  {
+    "english": "sorry",
+    "translation": "lo siento",
+    "subject": "apology"
+  },
+  {
+    "english": "excuse me",
+    "translation": "disculpe",
+    "subject": "politeness"
+  },
+  {
+    "english": "good morning",
+    "translation": "buenos días",
+    "subject": "greeting"
+  },
+  {
+    "english": "good night",
+    "translation": "buenas noches",
+    "subject": "greeting"
+  },
+  {
+    "english": "how are you",
+    "translation": "¿cómo estás?",
+    "subject": "greeting"
+  },
+  {
+    "english": "what's your name",
+    "translation": "¿cómo te llamas?",
+    "subject": "introduction"
+  },
+  {
+    "english": "my name is",
+    "translation": "me llamo",
+    "subject": "introduction"
+  },
+  {
+    "english": "nice to meet you",
+    "translation": "mucho gusto",
+    "subject": "greeting"
+  },
+  {
+    "english": "how much",
+    "translation": "¿cuánto cuesta?",
+    "subject": "question"
+  },
+  {
+    "english": "where is",
+    "translation": "¿dónde está?",
+    "subject": "question"
+  },
+  {
+    "english": "help",
+    "translation": "ayuda",
+    "subject": "request"
+  },
+  {
+    "english": "water",
+    "translation": "agua",
+    "subject": "drink"
+  },
+  {
+    "english": "food",
+    "translation": "comida",
+    "subject": "food"
+  },
+  {
+    "english": "bathroom",
+    "translation": "baño",
+    "subject": "place"
+  },
+  {
+    "english": "apple",
+    "translation": "manzana",
+    "subject": "food"
+  },
+  {
+    "english": "dog",
+    "translation": "perro",
+    "subject": "animal"
+  },
+  {
+    "english": "cat",
+    "translation": "gato",
+    "subject": "animal"
+  },
+  {
+    "english": "car",
+    "translation": "coche",
+    "subject": "vehicle"
+  },
+  {
+    "english": "house",
+    "translation": "casa",
+    "subject": "place"
+  },
+  {
+    "english": "book",
+    "translation": "libro",
+    "subject": "object"
+  },
+  {
+    "english": "school",
+    "translation": "escuela",
+    "subject": "place"
+  },
+  {
+    "english": "teacher",
+    "translation": "maestro",
+    "subject": "profession"
+  },
+  {
+    "english": "student",
+    "translation": "estudiante",
+    "subject": "person"
+  },
+  {
+    "english": "computer",
+    "translation": "computadora",
+    "subject": "technology"
+  },
+  {
+    "english": "phone",
+    "translation": "teléfono",
+    "subject": "technology"
+  },
+  {
+    "english": "sun",
+    "translation": "sol",
+    "subject": "nature"
+  },
+  {
+    "english": "moon",
+    "translation": "luna",
+    "subject": "nature"
+  },
+  {
+    "english": "star",
+    "translation": "estrella",
+    "subject": "nature"
+  },
+  {
+    "english": "tree",
+    "translation": "árbol",
+    "subject": "nature"
+  },
+  {
+    "english": "flower",
+    "translation": "flor",
+    "subject": "nature"
+  },
+  {
+    "english": "city",
+    "translation": "ciudad",
+    "subject": "place"
+  },
+  {
+    "english": "country",
+    "translation": "país",
+    "subject": "place"
+  },
+  {
+    "english": "mountain",
+    "translation": "montaña",
+    "subject": "nature"
+  },
+  {
+    "english": "river",
+    "translation": "río",
+    "subject": "nature"
+  },
+  {
+    "english": "bread",
+    "translation": "pan",
+    "subject": "food"
+  },
+  {
+    "english": "milk",
+    "translation": "leche",
+    "subject": "drink"
+  },
+  {
+    "english": "coffee",
+    "translation": "café",
+    "subject": "drink"
+  },
+  {
+    "english": "wine",
+    "translation": "vino",
+    "subject": "drink"
+  },
+  {
+    "english": "chicken",
+    "translation": "pollo",
+    "subject": "food"
+  },
+  {
+    "english": "fish",
+    "translation": "pescado",
+    "subject": "food"
+  },
+  {
+    "english": "shirt",
+    "translation": "camisa",
+    "subject": "clothing"
+  },
+  {
+    "english": "shoes",
+    "translation": "zapatos",
+    "subject": "clothing"
+  },
+  {
+    "english": "hat",
+    "translation": "sombrero",
+    "subject": "clothing"
+  },
+  {
+    "english": "ball",
+    "translation": "pelota",
+    "subject": "object"
+  },
+  {
+    "english": "bed",
+    "translation": "cama",
+    "subject": "object"
+  },
+  {
+    "english": "window",
+    "translation": "ventana",
+    "subject": "object"
+  },
+  {
+    "english": "door",
+    "translation": "puerta",
+    "subject": "object"
+  },
+  {
+    "english": "friend",
+    "translation": "amigo",
+    "subject": "person"
+  },
+  {
+    "english": "family",
+    "translation": "familia",
+    "subject": "people"
+  },
+  {
+    "english": "baby",
+    "translation": "bebé",
+    "subject": "person"
+  },
+  {
+    "english": "love",
+    "translation": "amor",
+    "subject": "emotion"
+  },
+  {
+    "english": "happiness",
+    "translation": "felicidad",
+    "subject": "emotion"
+  },
+  {
+    "english": "sadness",
+    "translation": "tristeza",
+    "subject": "emotion"
+  },
+  {
+    "english": "anger",
+    "translation": "ira",
+    "subject": "emotion"
+  },
+  {
+    "english": "fear",
+    "translation": "miedo",
+    "subject": "emotion"
+  }
+]
