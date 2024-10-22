@@ -1,6 +1,7 @@
 package com.globolingo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
 
 /**
@@ -16,12 +17,10 @@ public class User {
     private int level;
     private Avatar avatar;
     private ArrayList<Avatar> unlockedAvatars;
-    private Course course;
+    private ArrayList<Course> courseList;
     private Progress progress;
     private UUID uuid;
     private boolean loggedIn;
-
-    private ProgressList progressList;
 
     private final static int MIN_PASSWORD_LENGTH = 8;
     private final static int MAX_PASSWORD_LENGTH = 64;
@@ -41,6 +40,8 @@ public class User {
         setFirstName(firstName);
         setLastName(lastName);
         unlockedAvatars = new ArrayList<>();
+        courseList = new ArrayList<>();
+        courseList.add(new Course(Language.SPANISH, this));
     }
 
     /**
@@ -55,6 +56,7 @@ public class User {
         setFirstName(firstName);
         setLastName(lastName);
         unlockedAvatars = new ArrayList<>();
+        courseList.add(new Course(Language.SPANISH, this));
     }
 
     /**
@@ -64,24 +66,26 @@ public class User {
      * @param password
      * @param uuid
      */
-    public User(String username, String password, UUID uuid) {
+    public User(String username, String password, String firstName, String lastname, UUID uuid, int level,
+            Avatar avatar, ArrayList<Avatar> unlockedAvatars) {
         setUsername(username);
         setPassword(password);
+        this.firstName = firstName;
+        this.lastName = lastname;
+        this.level = level;
         this.uuid = uuid;
-        unlockedAvatars = new ArrayList<>();
+        this.avatar = avatar;
+        this.unlockedAvatars = unlockedAvatars;
+        this.courseList = new ArrayList<>();
     }
 
     // Getters
 
     /**
-     * Gets User's Progress List
+     * Gets User's Progress
      * 
      * @return Progress
      */
-    public ProgressList getProgressList() {
-        return this.progressList;
-    }
-
     public Progress getProgress() {
         return this.progress;
     }
@@ -109,8 +113,8 @@ public class User {
      * 
      * @return
      */
-    public Course getCourse() {
-        return this.course;
+    public ArrayList<Course> getCourse() {
+        return this.courseList;
     }
 
     /**
@@ -174,8 +178,8 @@ public class User {
      * 
      * @param course
      */
-    public void setCourse(Course course) {
-        this.course = course;
+    public void setCourseList(ArrayList<Course> courseList) {
+        this.courseList = courseList;
     }
 
     /**
@@ -272,6 +276,14 @@ public class User {
         unlockedAvatars.add(avatar);
     }
 
+    public void addCourse(Course course) {
+        courseList.add(course);
+    }
+
+    public void removeCourse(Course course) {
+        courseList.remove(course);
+    }
+
     public void setLoggedIn(boolean loggedIn) {
         this.loggedIn = loggedIn;
     }
@@ -279,7 +291,7 @@ public class User {
     public boolean isLoggedIn() {
         return this.loggedIn;
     }
-    
+
     /**
      * Updates all user details at once.
      * 
@@ -291,13 +303,29 @@ public class User {
      * @param course    new course
      */
     public void updateDetails(String firstName, String lastName, String password, int level, Avatar avatar,
-            Course course) {
+            ArrayList<Course> courseList) {
         setFirstName(firstName);
         setLastName(lastName);
         setPassword(password);
         setLevel(level);
         setAvatar(avatar);
-        setCourse(course);
+        setCourseList(courseList);
+    }
+
+    public String toString() {
+        String unlockedAvatarsStr = "";
+        for (Avatar avatar : unlockedAvatars) {
+            unlockedAvatarsStr += avatar.getName() + " ";
+
+        }
+        String courseListStr = "";
+        for (Course course : courseList) {
+            courseListStr += course.getLanguage().getLanguage() + " ";
+        }
+        return "Username: " + this.username + "\nFirstname:" + this.firstName + "\nLast Name: " + this.lastName
+                + "\nAvatar Name: "
+                + this.avatar.getName() + "\nUnlocked Avatars: " + unlockedAvatarsStr + "\nCourses: " + courseListStr
+                + "\nPassword: "
+                + this.password + "\nLevel: " + this.level + "\nID: " + this.uuid;
     }
 }
-
