@@ -9,7 +9,7 @@
         "loggedIn": false,
         "avatar": {
             "name": "Basic Bobby",
-            "unlockedAvatars": ["Ice Hunter"]
+            "unlocked": ["Ice Hunter"]
         }
     },
     {
@@ -25,7 +25,7 @@
         "loggedIn": true,
         "avatar": {
             "name": "Red Wolf",
-            "unlockedAvatars": ["Thunder Claw"]
+            "unlocked": ["Thunder Claw"]
         }
     },
     {
@@ -41,7 +41,7 @@
         "loggedIn": false,
         "avatar": {
             "name": "Potatoe Rider",
-            "unlockedAvatars": ["Shadow Strike"]
+            "unlocked": ["Shadow Strike"]
         }
     },
     {
@@ -57,7 +57,7 @@
         "loggedIn": true,
         "avatar": {
             "name": "Blue Fang",
-            "unlockedAvatars": ["Night Rider"]
+            "unlocked": ["Night Rider"]
         }
     },
     {
@@ -73,7 +73,7 @@
         "loggedIn": false,
         "avatar": {
             "name": "Sky Flame",
-            "unlockedAvatars": ["Storm Wing"]
+            "unlocked": ["Storm Wing"]
         }
     },
     {
@@ -89,7 +89,7 @@
         "loggedIn": true,
         "avatar": {
             "name": "Sky Rider",
-            "unlockedAvatars": ["Keyboard Warrior"]
+            "unlocked": ["Keyboard Warrior"]
         }
     }
 ]
