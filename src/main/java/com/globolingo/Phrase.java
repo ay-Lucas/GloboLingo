@@ -7,23 +7,23 @@ import java.util.ArrayList;
  * allows user to "construct" the phrase with the individual words.
  */
 public class Phrase {
-    private String phraseEnglish;
+    private String phrase;
     private ArrayList<Word> translation;
 
         // No constructor in  UML, adding here
     /**
      * Constructor
-     * @param phraseEnglish The phrase in english
+     * @param phrase The phrase in english
      * @param translation ArrayList of type Word, will be the phrase in the foreign language
      */
     public Phrase(String phraseEnglish, ArrayList<Word> translation)  {
-        setPhraseEnglish(phraseEnglish);
+        setPhrase(phrase);
         setTranslation(translation);
     }
     /**
      * @return the String value of the phrase in english
      */
-    public String getPhraseEnglish()  { return this.phraseEnglish; }
+    public String getPhrase()  { return this.phrase; }
 
     /**
      * @return The ArrayList<Word> of the translated phrase
@@ -35,8 +35,8 @@ public class Phrase {
      * 
      * @param phrase String value of english phrase
      */
-    public void setPhraseEnglish(String phrase)  {
-        this.phraseEnglish = phrase;
+    public void setPhrase(String phrase)  {
+        this.phrase = phrase;
     }
     
     /**
