@@ -1,110 +1,111 @@
 [
-    {
-        "username": "robbieWhite",
-        "firstName": "Robbie",
-        "lastName": "White",
-        "password": "rWhite123",
-        "level": 2,
-        "UUID": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
-        "progress": {
-            "completedSections": 0,
-            "completedLessons": 0,
-            "nextLootCrateAt": 5
-        },
-        "loggedIn": false,
-        "avatar": {
-            "name": "Basic Bobby",
-            "unlocked": ["Ice Hunter"]
-        }
+  {
+    "username": "robbieWhite",
+    "firstName": "Robbie",
+    "lastName": "White",
+    "password": "rWhite123",
+    "level": 2,
+    "UUID": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+    "progress": {
+      "completedSections": 0,
+      "completedLessons": 0,
+      "nextLootCrateAt": 5
     },
-    {
-        "username": "amySmith",
-        "firstName": "Amy",
-        "lastName": "Smith",
-        "password": "asmith456",
-        "level": 3,
-        "UUID": "1a4f2abe-2a18-41c8-b167-743169e05269",
-        "progress": {
-            "completedSections": 3,
-            "completedLessons": 6,
-            "nextLootCrateAt": 10
-        },
-        "loggedIn": true,
-        "avatar": {
-            "name": "Red Wolf",
-            "unlocked": ["Thunder Claw"]
-        }
-    },
-    {
-        "username": "johnDoe",
-        "firstName": "John",
-        "lastName": "Doe",
-        "password": "johnDoe789",
-        "level": 1,
-        "UUID": "77b5a495-0753-4858-a402-9ed0daa9c9fc",
-        "progress": {
-            "completedSections": 2,
-            "completedLessons": 4,
-            "nextLootCrateAt": 5
-        },
-        "loggedIn": false,
-        "avatar": {
-            "name": "Potatoe Rider",
-            "unlocked": ["Shadow Strike"]
-        }
-    },
-    {
-        "username": "janeDoe",
-        "firstName": "Jane",
-        "lastName": "Doe",
-        "password": "janeDoe101",
-        "level": 4,
-        "UUID": "90a7e0b2-98cd-4740-beda-98c6aaf9e781",
-        "progress": {
-            "completedSections": 6,
-            "completedLessons": 12,
-            "nextLootCrateAt": 20
-        },
-        "loggedIn": true,
-        "avatar": {
-            "name": "Blue Fang",
-            "unlocked": ["Night Rider"]
-        }
-    },
-    {
-        "username": "mikeBrown",
-        "firstName": "Mike",
-        "lastName": "Brown",
-        "password": "mikeBrown202",
-        "level": 5,
-        "UUID": "b027fbe3-93bc-4640-88b8-3e12542f3967",
-        "progress": {
-            "completedSections": 8,
-            "completedLessons": 16,
-            "nextLootCrateAt": 25
-        },
-        "loggedIn": false,
-        "avatar": {
-            "name": "Sky Flame",
-            "unlocked": ["Storm Wing"]
-        }
-    },
-    {
-        "username": "saraGreen",
-        "firstName": "Sara",
-        "lastName": "Green",
-        "password": "sevenGreen303",
-        "level": 2,
-        "UUID": "d9c3ed42-f7c0-4037-bce7-df8b5e4059c8",
-        "progress": {
-            "completedSections": 4,
-            "completedLessons": 9,
-            "nextLootCrateAt": 15
-        },
-        "loggedIn": true,
-        "avatar": {
-            "name": "Sky Rider",
-            "unlocked": ["Keyboard Warrior"]
-        }
+    "loggedIn": false,
+    "avatar": {
+      "name": "Basic Bobby",
+      "unlocked": ["Ice Hunter"]
     }
+  },
+  {
+    "username": "amySmith",
+    "firstName": "Amy",
+    "lastName": "Smith",
+    "password": "asmith456",
+    "level": 3,
+    "UUID": "1a4f2abe-2a18-41c8-b167-743169e05269",
+    "progress": {
+      "completedSections": 3,
+      "completedLessons": 6,
+      "nextLootCrateAt": 10
+    },
+    "loggedIn": true,
+    "avatar": {
+      "name": "Red Wolf",
+      "unlocked": ["Thunder Claw"]
+    }
+  },
+  {
+    "username": "johnDoe",
+    "firstName": "John",
+    "lastName": "Doe",
+    "password": "johnDoe789",
+    "level": 1,
+    "UUID": "77b5a495-0753-4858-a402-9ed0daa9c9fc",
+    "progress": {
+      "completedSections": 2,
+      "completedLessons": 4,
+      "nextLootCrateAt": 5
+    },
+    "loggedIn": false,
+    "avatar": {
+      "name": "Potato Rider",
+      "unlocked": ["Shadow Strike"]
+    }
+  },
+  {
+    "username": "janeDoe",
+    "firstName": "Jane",
+    "lastName": "Doe",
+    "password": "janeDoe101",
+    "level": 4,
+    "UUID": "90a7e0b2-98cd-4740-beda-98c6aaf9e781",
+    "progress": {
+      "completedSections": 6,
+      "completedLessons": 12,
+      "nextLootCrateAt": 20
+    },
+    "loggedIn": true,
+    "avatar": {
+      "name": "Blue Faang",
+      "unlocked": ["Night Rider"]
+    }
+  },
+  {
+    "username": "mikeBrown",
+    "firstName": "Mike",
+    "lastName": "Brown",
+    "password": "mikeBrown202",
+    "level": 5,
+    "UUID": "b027fbe3-93bc-4640-88b8-3e12542f3967",
+    "progress": {
+      "completedSections": 8,
+      "completedLessons": 16,
+      "nextLootCrateAt": 25
+    },
+    "loggedIn": false,
+    "avatar": {
+      "name": "Sky Flame",
+      "unlocked": ["Storm Wing"]
+    }
+  },
+  {
+    "username": "saraGreen",
+    "firstName": "Sara",
+    "lastName": "Green",
+    "password": "sevenGreen303",
+    "level": 2,
+    "UUID": "d9c3ed42-f7c0-4037-bce7-df8b5e4059c8",
+    "progress": {
+      "completedSections": 4,
+      "completedLessons": 9,
+      "nextLootCrateAt": 15
+    },
+    "loggedIn": true,
+    "avatar": {
+      "name": "Sky Rider",
+      "unlocked": ["Keyboard Warrior"]
+    }
+  }
 ]
+
