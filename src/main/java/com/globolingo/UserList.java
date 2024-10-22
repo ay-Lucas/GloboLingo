@@ -169,6 +169,7 @@ public class UserList {
         users.add(user);
     }
 
+    
     /**
      * Loads users from a JSON file and adds them to the user list.
      * Each user is created with the details provided in the JSON file.
