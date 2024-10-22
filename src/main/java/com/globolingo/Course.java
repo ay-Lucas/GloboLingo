@@ -1,17 +1,14 @@
 package com.globolingo;
+
 import java.util.ArrayList;
 
 public class Course {
-    private String title;
-    private String subject;
     private ArrayList<Section> sections;
     private Section currentSection;
     private Language language;
     private User user;
 
-    public Course(String title, String subject, Language language, User user) {
-        this.title = title;
-        this.subject = subject;
+    public Course(Language language, User user) {
         this.sections = new ArrayList<>();
         this.language = language;
         this.user = user;
@@ -33,7 +30,7 @@ public class Course {
             currentSection.getLessons().add(newLesson);
         }
     }
-    
+
     public Section viewSection() {
         return this.currentSection;
     }
@@ -62,7 +59,7 @@ public class Course {
         section.setMaxScore(maxScore);
         section.setSectionProgress(100);
     }
-    
+
     public Section nextSection() {
         int currentIndex = sections.indexOf(currentSection);
         if (currentIndex < sections.size() - 1) {
@@ -70,7 +67,7 @@ public class Course {
         }
         return null;
     }
-    
+
     public int viewResults() {
         int totalScore = 0;
         for (Section section : sections) {
@@ -80,17 +77,32 @@ public class Course {
     }
 
     // Getters
-    public String getTitle() { return this.title; }
-    public String getSubject() { return this.subject; }
-    public ArrayList<Section> getSections() { return this.sections; }
-    public Language getLanguage() { return this.language; }
-    public User getUser() { return this.user; }
+    public ArrayList<Section> getSections() {
+        return this.sections;
+    }
+
+    public Language getLanguage() {
+        return this.language;
+    }
+
+    public User getUser() {
+        return this.user;
+    }
 
     // Setters
-    public void setTitle(String title) { this.title = title; }
-    public void setSubject(String subject) { this.subject = subject; }
-    public void setSections(ArrayList<Section> sections) { this.sections = sections; }
-    public void setCurrentSection(Section section) { this.currentSection = section; }
-    public void setLanguage(Language language) { this.language = language; }
-    public void setUser(User user) { this.user = user; }
+    public void setSections(ArrayList<Section> sections) {
+        this.sections = sections;
+    }
+
+    public void setCurrentSection(Section section) {
+        this.currentSection = section;
+    }
+
+    public void setLanguage(Language language) {
+        this.language = language;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 }
