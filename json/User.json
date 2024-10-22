@@ -6,6 +6,11 @@
         "password": "rWhite123",
         "level": 2,
         "UUID": "f47ac10b-58cc-4372-a567-0e02b2c3d479",
+        "progress": {
+            "completedSections": 0,
+            "completedLessons": 0,
+            "nextLootCrateAt": 5
+        },
         "loggedIn": false,
         "avatar": {
             "name": "Basic Bobby",
@@ -19,9 +24,11 @@
         "password": "asmith456",
         "level": 3,
         "UUID": "1a4f2abe-2a18-41c8-b167-743169e05269",
-        "completedSections": 5,
-        "completedLessons": 8,
-        "nextLootCrateAt": 15,
+        "progress": {
+            "completedSections": 3,
+            "completedLessons": 6,
+            "nextLootCrateAt": 10
+        },
         "loggedIn": true,
         "avatar": {
             "name": "Red Wolf",
@@ -35,9 +42,11 @@
         "password": "johnDoe789",
         "level": 1,
         "UUID": "77b5a495-0753-4858-a402-9ed0daa9c9fc",
-        "completedSections": 2,
-        "completedLessons": 4,
-        "nextLootCrateAt": 5,
+        "progress": {
+            "completedSections": 2,
+            "completedLessons": 4,
+            "nextLootCrateAt": 5
+        },
         "loggedIn": false,
         "avatar": {
             "name": "Potatoe Rider",
@@ -51,9 +60,11 @@
         "password": "janeDoe101",
         "level": 4,
         "UUID": "90a7e0b2-98cd-4740-beda-98c6aaf9e781",
-        "completedSections": 6,
-        "completedLessons": 12,
-        "nextLootCrateAt": 20,
+        "progress": {
+            "completedSections": 6,
+            "completedLessons": 12,
+            "nextLootCrateAt": 20
+        },
         "loggedIn": true,
         "avatar": {
             "name": "Blue Fang",
@@ -67,9 +78,11 @@
         "password": "mikeBrown202",
         "level": 5,
         "UUID": "b027fbe3-93bc-4640-88b8-3e12542f3967",
-        "completedSections": 8,
-        "completedLessons": 16,
-        "nextLootCrateAt": 25,
+        "progress": {
+            "completedSections": 8,
+            "completedLessons": 16,
+            "nextLootCrateAt": 25
+        },
         "loggedIn": false,
         "avatar": {
             "name": "Sky Flame",
@@ -83,9 +96,11 @@
         "password": "sevenGreen303",
         "level": 2,
         "UUID": "d9c3ed42-f7c0-4037-bce7-df8b5e4059c8",
-        "completedSections": 4,
-        "completedLessons": 9,
-        "nextLootCrateAt": 15,
+        "progress": {
+            "completedSections": 4,
+            "completedLessons": 9,
+            "nextLootCrateAt": 15
+        },
         "loggedIn": true,
         "avatar": {
             "name": "Sky Rider",
