@@ -118,6 +118,38 @@
             }
           ]
         }
+      },
+      {
+        "language": "Spanish",
+        "course": "Beginner Spanish",
+        "section": {
+          "title": "Basics",
+          "subject": "Greetings",
+          "sectionProgress": 70,
+          "userScore": 7,
+          "maxscore": 10,
+          "isCompleted": false
+        },
+        "lesson": {
+          "name": "Greetings",
+          "diffculty": "Easy",
+          "isCompleted": false,
+          "questions": [
+            {
+              "type": "Multiple Choice",
+              "word": "Hola",
+              "prompt": "How do you greet someone in Spanish?",
+              "options": [
+                "Hola",
+                "Adios",
+                "Bonjour"
+              ],
+              "answer": "Hola",
+              "isCorrect": true,
+              "phrase": "Hola, ¿cómo estás?"
+            }
+          ]
+        }
       }
     ]
   }
