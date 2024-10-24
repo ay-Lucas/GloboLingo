@@ -198,7 +198,7 @@
     {"english": "hot", "spanish": "caliente"},
     {"english": "cold", "spanish": "frío"}
   ],
-  "family_and_relationships": [
+  "familyAndRelationships": [
     {"english": "mother", "spanish": "madre"},
     {"english": "father", "spanish": "padre"},
     {"english": "sister", "spanish": "hermana"},
@@ -311,7 +311,7 @@
     {"english": "sponge", "spanish": "esponja"},
     {"english": "trash can", "spanish": "bote de basura"}
   ],
-  "occupations_and_professions": [
+  "occupationsAndProfessions": [
     {"english": "doctor", "spanish": "médico"},
     {"english": "nurse", "spanish": "enfermero/enfermera"},
     {"english": "teacher", "spanish": "maestro/maestra"},
@@ -362,7 +362,7 @@
     {"english": "dancer", "spanish": "bailarín/bailarina"},
     {"english": "photographer", "spanish": "fotógrafo/fotógrafa"}
   ],
-  "education_and_school": [
+  "educationAndSchool": [
     {"english": "school", "spanish": "escuela"},
     {"english": "class", "spanish": "clase"},
     {"english": "student", "spanish": "estudiante"},
@@ -416,7 +416,7 @@
     {"english": "vacation", "spanish": "vacaciones"},
     {"english": "study", "spanish": "estudiar"}
   ],
-  "shopping_and_consumer_goods": [
+  "shoppingAndConsumerGoods": [
     {"english": "store", "spanish": "tienda"},
     {"english": "mall", "spanish": "centro comercial"},
     {"english": "market", "spanish": "mercado"},
@@ -466,7 +466,7 @@
     {"english": "drinks", "spanish": "bebidas"},
     {"english": "pet supplies", "spanish": "suministros para mascotas"}
   ],
-  "sports_and_hobbies": [
+  "sportsAcndHobbies": [
     {"english": "football", "spanish": "fútbol"},
     {"english": "basketball", "spanish": "baloncesto"},
     {"english": "baseball", "spanish": "béisbol"},
