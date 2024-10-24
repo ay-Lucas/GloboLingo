@@ -2,21 +2,23 @@ package com.globolingo;
 
 /**
  * @author Alexander Hughes
- * This class holds all values for a word, including its english and foreign counterparts
+ *         This class holds all values for a word, including its english and
+ *         foreign counterparts
  */
 public class Word {
     private Language language;
     private String englishWord;
     private String translation;
     private String subject;
-    
+
     /**
      * Constructor
-     * @param language the Language this word uses
+     * 
+     * @param language    the Language this word uses
      * @param englishWord English word
      * @param translation Translated word
-     * @param subject Subject of the word
-     * @param prompt 
+     * @param subject     Subject of the word
+     * @param prompt
      */
     public Word(Language language, String englishWord, String translation, String subject) {
         this.language = language;
@@ -55,5 +57,13 @@ public class Word {
      */
     public String getSubject() {
         return subject;
+    }
+
+    public String toString() {
+        return "\nEnglish world: " + englishWord +
+                "\nTranslation word: " + translation +
+                "\nSubject: " + subject +
+                "\nLanguage: " + language + "\n";
+
     }
 }
