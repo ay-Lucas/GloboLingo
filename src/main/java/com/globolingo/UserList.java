@@ -209,6 +209,22 @@ public class UserList {
         System.out.println("Added user: " + newUser.getUsername());
         System.out.println("Check User.json to see the new entry!");
     }
+
+    public static void main(String[] args) {
+        UserList userList = UserList.getInstance();
+        
+        // Add a new user - this will automatically save to User.json
+        User newUser = userList.addUser("coolUser123", "John", "Smith", "securePass456");
+        
+        // The user is now in the JSON file with:
+        // - Generated UUID
+        // - Default level
+        // - Default avatar settings
+        // - Empty course list
+        
+        System.out.println("Added user: " + newUser.getUsername());
+        System.out.println("Check User.json to see the new entry!");
+    }
     
 
 }
