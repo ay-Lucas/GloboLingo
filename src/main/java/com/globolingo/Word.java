@@ -18,7 +18,6 @@ public class Word {
      * @param englishWord English word
      * @param translation Translated word
      * @param subject     Subject of the word
-     * @param prompt
      */
     public Word(Language language, String englishWord, String translation, String subject) {
         this.language = language;

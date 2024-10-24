@@ -16,7 +16,7 @@ public class Phrase {
      * @param phrase The phrase in english
      * @param translation ArrayList of type Word, will be the phrase in the foreign language
      */
-    public Phrase(String phraseEnglish, ArrayList<Word> translation)  {
+    public Phrase(String phrase, ArrayList<Word> translation)  {
         setPhrase(phrase);
         setTranslation(translation);
     }
@@ -31,6 +31,13 @@ public class Phrase {
     public ArrayList<Word> getTranslation()  { return this.translation; }
 
         // No setters in UML, adding here
+    public String getTranslationString() {
+        String ret = "";
+        for(int i = 0; i<translation.size(); i++)  {
+            ret += translation.get(i);
+        }
+        return ret;
+    }
     /**
      * 
      * @param phrase String value of english phrase

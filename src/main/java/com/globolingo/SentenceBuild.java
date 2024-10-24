@@ -8,6 +8,7 @@ package com.globolingo;
 public class SentenceBuild implements Question {
     
     private Phrase sentence;
+    private boolean correct = false;
 
     /**
      * Constructor
@@ -15,7 +16,7 @@ public class SentenceBuild implements Question {
      */
         // No constructor in UML
     public SentenceBuild(Phrase sentence)  {
-        this.setSentence(sentence);
+        this.sentence = sentence;
     }
 
         // Getter not in UML
@@ -35,14 +36,14 @@ public class SentenceBuild implements Question {
      * @return boolean, true if equal to string value of sentence.
      */
     @Override
-    public boolean isCorrect(String input) {
-        return this.getAnswer().equalsIgnoreCase(input);
+    public boolean isCorrect() {
+        return this.correct;
     }
 
     
     @Override
-    public void getUserInput() {
-        //TODO Cannot properly implement without having UI or some other way of "selecting" from the words
+    public void getUserInput(String input) {
+        this.correct = input.equalsIgnoreCase(sentence.getTranslationString());
     }
 
     /**

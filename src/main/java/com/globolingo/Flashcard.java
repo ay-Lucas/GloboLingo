@@ -1,19 +1,22 @@
 package com.globolingo;
-import java.util.Scanner;
 
 /**
  * @author Alexander Hughes
  * This class implements Flashcard question type, user is presented
- * a prompt and has to input the answer, typed response.
+ * a foreign prompt and has to input the answer in english, typed response.
  */
 public class Flashcard implements Question  {
-    private Word prompt;
+    private String prompt;
     private String answer;
+    private boolean correct = false;
     
         //UML has C in flashcard capitalized, may need to be updated.
-    public Flashcard(Word prompt, String answer)  {
-        setPrompt(prompt);
-        setAnswer(answer);
+    public Flashcard(Word word)  {
+        this.answer = word.getEnglishWord();
+    }
+
+    public Flashcard(Phrase phrase)  {
+        this.answer = phrase.getPhrase();
     }
 
         // Getter not present in UML
@@ -21,34 +24,23 @@ public class Flashcard implements Question  {
      * 
      * @return the Word prompt
      */
-    public Word getPrompt() { return this.prompt; }
+    public String getPrompt() { return this.prompt; }
 
     /**
-     * compares input with the answer
-     * @param input input to be compared
-     * @return true or false, correct or incorrect
+     * @return the boolean value of if this question was answered correctly, default false
      */
     @Override
-    public boolean isCorrect(String input) {
-        return input.equalsIgnoreCase(this.answer);
+    public boolean isCorrect() {
+        return this.correct;
     }
 
     /**
-     * This is probably a temp implementation, gathers input via scanner,
-     * uses isCorrect to determine if correct or not.
+     * compares input to english prompt, sets correct boolean.
+     * @param input ENGLISH word as input
      */
     @Override
-    public void getUserInput() {
-        //TODO TEMP IMPLEMENTATION
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Please enter response");
-        String input = keyboard.nextLine();
-        if(isCorrect(input)) {
-            //TODO Track answer and such needs to be implmented with lesson
-            System.out.println("That's correct!");
-        } else {
-            System.out.println("That is incorrect.");
-        }
+    public void getUserInput(String input) {
+        this.correct = input.equalsIgnoreCase(prompt);
     }
 
     /**
@@ -61,9 +53,9 @@ public class Flashcard implements Question  {
         // Setter not present in UML
     /**
      * 
-     * @param prompt Word of this flashcard
+     * @param prompt String value of the prompt of this flashcard
      */
-    public void setPrompt(Word prompt) {
+    public void setPrompt(String prompt) {
         this.prompt = prompt;
     }
     
