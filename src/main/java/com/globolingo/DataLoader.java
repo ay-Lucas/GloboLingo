@@ -15,7 +15,7 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader extends DataConstants {
 
     public static void main(String[] args) {
-        getUsers();
+        loadWords("basics");
     }
 
     /**
@@ -65,10 +65,36 @@ public class DataLoader extends DataConstants {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < users.size(); i++) {
-            System.out.println(users.get(i).toString() + "\n");
-        }
+        // for (int i = 0; i < users.size(); i++) {
+        // System.out.println(users.get(i).toString() + "\n");
+        // }
         return users;
+    }
+
+    public static ArrayList<Word> loadWords(String subject) {
+        ArrayList<Word> wordList = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader(DICTIONARY_FILE_PATH);
+            JSONObject dictionaryJson = (JSONObject) new JSONParser().parse(reader);
+            JSONArray basicsDictionaryJson = (JSONArray) dictionaryJson.get(DICTIONARY_BASICS);
+
+            for (int i = 0; i < basicsDictionaryJson.size(); i++) {
+                JSONObject wordJson = (JSONObject) basicsDictionaryJson.get(i);
+                String englishWord = (String) wordJson.get(DICTIONARY_ENGLISH_WORD);
+                String spanishWord = (String) wordJson.get(DICTIONARY_SPANISH_WORD);
+                Word word = new Word(Language.SPANISH, englishWord, spanishWord, "basics");
+                wordList.add(word);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (wordList.size() < 1)
+            return null;
+        else
+            return wordList;
+
     }
 
 }
