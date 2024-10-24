@@ -1,4 +1,5 @@
 package com.globolingo;
+
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -15,15 +16,6 @@ public class UserList extends DataConstants {
             instance = new UserList();
         }
         return instance;
-    }
-
-    public User addUser(String username, String firstName, String lastName, String password) {
-        User newUser = new User(username, firstName, lastName);
-        newUser.setPassword(password);
-        newUser.setUUID(UUID.randomUUID());
-        users.add(newUser);
-        saveUsers();
-        return newUser;
     }
 
     public ArrayList<User> getUsers() {
@@ -60,13 +52,12 @@ public class UserList extends DataConstants {
         User existingUser = getUser(user.getUsername());
         if (existingUser != null) {
             existingUser.updateDetails(
-                user.getFirstName(),
-                user.getLastName(), 
-                user.getPassword(),
-                user.getLevel(),
-                user.getAvatar(),
-                user.getCourseList()
-            );
+                    user.getFirstName(),
+                    user.getLastName(),
+                    user.getPassword(),
+                    user.getLevel(),
+                    user.getAvatar(),
+                    user.getCourseList());
             saveUsers();
         }
     }

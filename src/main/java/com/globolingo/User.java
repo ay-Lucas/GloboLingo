@@ -53,8 +53,10 @@ public class User {
         setPassword(password);
         setFirstName(firstName);
         setLastName(lastName);
+        
+        setUUID(uuid);
         unlockedAvatars = new ArrayList<>();
-        courseList.add(new Course(Language.SPANISH, this));
+        //TODO: fix this. courseList.add(new Course(Language.SPANISH, this)); 
     }
 
     /**

@@ -65,9 +65,6 @@ public class DataLoader extends DataConstants {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (int i = 0; i < users.size(); i++) {
-            System.out.println(users.get(i).toString() + "\n");
-        }
         return users;
     }
 
