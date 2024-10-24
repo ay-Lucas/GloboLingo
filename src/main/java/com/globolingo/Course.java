@@ -3,83 +3,49 @@ package com.globolingo;
 import java.util.ArrayList;
 
 public class Course {
-    private ArrayList<Section> sections;
-    private Section currentSection;
+    private ArrayList<Lesson> lessons;
+    private Lesson currentLesson;
     private Language language;
     private User user;
+    
+    public Lesson getCurrentLesson() {
+        return currentLesson;
+    }
+    
+    public void setCurrentLesson(Lesson lesson) {
+        this.currentLesson = lesson;
+    } 
 
     public Course(Language language, User user) {
-        this.sections = new ArrayList<>();
+        this.language = language;
+        this.lessons = new ArrayList<>();
         this.language = language;
         this.user = user;
-        this.currentSection = null;
     }
 
-    public void addSection(Section section) {
-        this.sections.add(section);
-        if (this.currentSection == null) {
-            this.currentSection = section;
-        }
+    public Course(Language language, User user, int currentLessonNum) {
+        this.language = language;
+        this.lessons = new ArrayList<>();
+        this.currentLesson = lessons.get(currentLessonNum);
+        this.language = language;
+        this.user = user;
     }
 
     public void createLesson(String subject, int difficulty) {
-        if (currentSection != null) {
-            Lesson newLesson = currentSection.generateLesson();
-            newLesson.setName(subject);
-            newLesson.setDifficulty(difficulty);
-            currentSection.getLessons().add(newLesson);
-        }
-    }
-
-    public Section viewSection() {
-        return this.currentSection;
-    }
-
-    public void completeSection(Section section) {
-        section.setCompletionStatus(true);
-        int totalScore = 0;
-        int maxScore = 0;
-        for (Lesson lesson : section.getLessons()) {
-            totalScore += lesson.getUserScore();
-            maxScore += lesson.getMaxScore();
-        }
-        section.setUserScore(totalScore);
-        section.setMaxScore(maxScore);
-        section.setSectionProgress(100);
-    }
-
-    public void aceSection(Section section) {
-        section.setCompletionStatus(true);
-        int maxScore = 0;
-        for (Lesson lesson : section.getLessons()) {
-            lesson.setUserScore(lesson.getMaxScore());
-            maxScore += lesson.getMaxScore();
-        }
-        section.setUserScore(maxScore);
-        section.setMaxScore(maxScore);
-        section.setSectionProgress(100);
-    }
-
-    public Section nextSection() {
-        int currentIndex = sections.indexOf(currentSection);
-        if (currentIndex < sections.size() - 1) {
-            return sections.get(currentIndex + 1);
-        }
-        return null;
+        ArrayList<Question> questions = new ArrayList<>();
+        Lesson newLesson = new Lesson(subject, difficulty, questions, 0, 100);
+        lessons.add(newLesson);
     }
 
     public int viewResults() {
         int totalScore = 0;
-        for (Section section : sections) {
-            totalScore += section.getUserScore();
+        for (Lesson lesson : lessons) {
+            totalScore += lesson.getUserScore();
         }
         return totalScore;
     }
 
     // Getters
-    public ArrayList<Section> getSections() {
-        return this.sections;
-    }
 
     public Language getLanguage() {
         return this.language;
@@ -87,15 +53,6 @@ public class Course {
 
     public User getUser() {
         return this.user;
-    }
-
-    // Setters
-    public void setSections(ArrayList<Section> sections) {
-        this.sections = sections;
-    }
-
-    public void setCurrentSection(Section section) {
-        this.currentSection = section;
     }
 
     public void setLanguage(Language language) {

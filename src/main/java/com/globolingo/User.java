@@ -1,7 +1,6 @@
 package com.globolingo;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.UUID;
 
 /**
@@ -18,7 +17,6 @@ public class User {
     private Avatar avatar;
     private ArrayList<Avatar> unlockedAvatars;
     private ArrayList<Course> courseList;
-    private Progress progress;
     private UUID uuid;
     private boolean loggedIn;
 
@@ -82,15 +80,6 @@ public class User {
     // Getters
 
     /**
-     * Gets User's Progress
-     * 
-     * @return Progress
-     */
-    public Progress getProgress() {
-        return this.progress;
-    }
-
-    /**
      * Gets User's username
      * 
      * @return
@@ -113,7 +102,7 @@ public class User {
      * 
      * @return
      */
-    public ArrayList<Course> getCourse() {
+    public ArrayList<Course> getCourseList() {
         return this.courseList;
     }
 
