@@ -7,146 +7,136 @@ import java.util.ArrayList;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
 
+/**
+ * DataWriter is responsible for saving data objects such as User objects to JSON files.
+ * This class provides methods to convert Java objects into JSON format and write them
+ * to a specified file path. Currently, it supports saving a list of User objects to a file.
+ */
 public class DataWriter extends DataConstants {
 
-    public static boolean saveUserList(ArrayList<User> userList) {
-        JSONArray jsonUsers = new JSONArray();
-
-        for (User user : userList) {
-            jsonUsers.add(getUserJSON(user));
+    /*
+     * The following commented-out section provides a future implementation
+     * of saving a dictionary list of words to a JSON file.
+     */
+    /* Dictionary functionality for future implementation
+    public static boolean saveDictionaryList(ArrayList<Word> wordList) {
+        JSONArray jsonWords = new JSONArray();
+        for (Word word : wordList) {
+            jsonWords.add(getWordJSON(word));
         }
-
-        return writeToFile(jsonUsers, USER_FILE_NAME);
+        return writeToFile(jsonWords, DICTIONARY_FILE_PATH);
     }
 
+    private static JSONObject getWordJSON(Word word) {
+        JSONObject wordDetails = new JSONObject();
+        wordDetails.put("english", word.getEnglish());
+        wordDetails.put("translation", word.getTranslation());
+        wordDetails.put("subject", word.getSubject());
+        return wordDetails;
+    }
+    */
+
+    /**
+     * Converts a list of User objects to a JSON array and saves it to a file.
+     * 
+     * @param userList The list of User objects to be saved
+     * @return true if the user list is successfully saved, false otherwise
+     */
+    public static boolean saveUserList(ArrayList<User> userList) {
+        JSONArray jsonUsers = new JSONArray();
+        for (User user : userList) {
+            jsonUsers.add(getUserJSON(user)); // Converts each user to JSON format
+        }
+        return writeToFile(jsonUsers, USER_FILE_PATH); // Writes the JSON array to a file
+    }
+
+    /**
+     * Converts a User object into a JSONObject that can be written to a file.
+     * 
+     * @param user The User object to be converted
+     * @return A JSONObject representation of the User
+     */
     private static JSONObject getUserJSON(User user) {
         JSONObject userDetails = new JSONObject();
-        userDetails.put("username", user.getUsername());
-        userDetails.put("firstName", user.getFirstName());
-        userDetails.put("lastName", user.getLastName());
-        userDetails.put("password", user.getPassword());
-        userDetails.put("level", user.getLevel());
-        userDetails.put("UUID", user.getUUID().toString());
-        userDetails.put("loggedIn", user.isLoggedIn());
+        userDetails.put(USER_USERNAME, user.getUsername()); // Adds the username
+        userDetails.put(USER_FIRSTNAME, user.getFirstName()); // Adds the first name
+        userDetails.put(USER_LASTNAME, user.getLastName()); // Adds the last name
+        userDetails.put(USER_PASSWORD, user.getPassword()); // Adds the password
+        userDetails.put(USER_LEVEL, user.getLevel()); // Adds the user's level
+        userDetails.put(USER_UUID, user.getUUID().toString()); // Adds the UUID (as String)
+        userDetails.put(USER_LOGGIN_IN, user.isLoggedIn()); // Adds login status
 
+        // Creates a JSON array for the user's courses
+        JSONArray coursesArray = new JSONArray();
+        for (Course course : user.getCourseList()) {
+            JSONObject courseObj = new JSONObject();
+            courseObj.put(USER_COURSES_LANGUAGE, course.getLanguage().getLanguage().toLowerCase()); // Adds course language
+            courseObj.put(USER_COURSES_CURRENT_LESSON, 0); // Placeholder for lesson progress
+            coursesArray.add(courseObj);
+        }
+        userDetails.put(USER_COURSES, coursesArray); // Adds the courses array to the user
+
+        // Adds avatar details (if any) to the user object
         addAvatarDetails(userDetails, user);
-        addProgressDetails(userDetails, user);
-
         return userDetails;
     }
 
+    /**
+     * Adds the avatar details of a user (if available) to the user's JSON representation.
+     * 
+     * @param userDetails The JSONObject representing the user
+     * @param user The User whose avatar details are to be added
+     */
     private static void addAvatarDetails(JSONObject userDetails, User user) {
         Avatar avatar = user.getAvatar();
         if (avatar != null) {
             JSONObject avatarJSON = new JSONObject();
-            avatarJSON.put("name", avatar.getName());
+            avatarJSON.put(USER_AVATAR_NAME, avatar.getName()); // Adds avatar name
+
+            // Creates a JSON array for the user's unlocked avatars
             JSONArray unlockedAvatars = new JSONArray();
             for (Avatar unlockedAvatar : user.getUnlockedAvatars()) {
-                unlockedAvatars.add(unlockedAvatar.getName());
+                unlockedAvatars.add(unlockedAvatar.getName()); // Adds unlocked avatar names
             }
-            avatarJSON.put("unlocked", unlockedAvatars);
-            userDetails.put("avatar", avatarJSON);
+            avatarJSON.put(USER_AVATAR_UNLOCKED, unlockedAvatars); // Adds unlocked avatars array
+            userDetails.put(USER_AVATAR, avatarJSON); // Adds the avatar object to the user
         }
     }
 
-    private static void addProgressDetails(JSONObject userDetails, User user) {
-        Progress progress = user.getProgress();
-        if (progress != null) {
-            JSONObject progressJSON = new JSONObject();
-            progressJSON.put("completedSections", progress.getCompletedSections().size());
-            progressJSON.put("completedLessons", progress.getCompletedLessons());
-            progressJSON.put("nextLootCrateAt", progress.getNextLootCrateProgress());
-            userDetails.put("progress", progressJSON);
-        }
-    }
-
-    public static boolean saveLanguageList(ArrayList<Course> courseList) {
-        JSONArray jsonLanguages = new JSONArray();
-        JSONObject languagesWrapper = new JSONObject();
-
-        for (Course course : courseList) {
-            jsonLanguages.add(getCourseJSON(course));
-        }
-
-        languagesWrapper.put("Languages", jsonLanguages);
-        JSONArray wrappedArray = new JSONArray();
-        wrappedArray.add(languagesWrapper);
-
-        return writeToFile(wrappedArray, LANGUAGE_FILE_NAME);
-    }
-
-    private static JSONObject getCourseJSON(Course course) {
-        JSONObject courseDetails = new JSONObject();
-        courseDetails.put("language", course.getLanguage());
-        courseDetails.put("course", course.getTitle());
-
-        JSONObject sectionDetails = new JSONObject();
-        Section section = course.getSections().get(0); // Assuming we're dealing with the first section
-        sectionDetails.put("title", section.getTitle());
-        sectionDetails.put("subject", section.getSubject());
-        sectionDetails.put("sectionProgress", 0); // You might want to calculate this
-        sectionDetails.put("userScore", section.getUserScore());
-        sectionDetails.put("maxscore", section.getMaxScore());
-        sectionDetails.put("isCompleted", false); // You might want to determine this
-
-        courseDetails.put("section", sectionDetails);
-
-        JSONObject lessonDetails = new JSONObject();
-        Lesson lesson = section.getLessons().get(0); // Assuming we're dealing with the first lesson
-        lessonDetails.put("name", lesson.getName());
-        lessonDetails.put("difficulty", lesson.getDifficulty());
-        lessonDetails.put("isCompleted", false); // You might want to determine this
-
-        JSONArray questionsArray = new JSONArray();
-        for (Question question : lesson.getQuestions()) {
-            questionsArray.add(getQuestionJSON(question));
-        }
-        lessonDetails.put("questions", questionsArray);
-
-        courseDetails.put("lesson", lessonDetails);
-
-        return courseDetails;
-    }
-
-    private static JSONObject getQuestionJSON(Question question) {
-        JSONObject questionDetails = new JSONObject();
-        questionDetails.put("type", question.getType());
-        questionDetails.put("word", question.getWord());
-        questionDetails.put("prompt", question.getPrompt());
-        questionDetails.put("answer", question.getAnswer());
-        questionDetails.put("isCorrect", question.isCorrect());
-    
-        // Add other question-specific details based on the question type
-        if (question.getType().equals("Matching")) {
-            questionDetails.put("picture", question.getPicture());
-            JSONArray pairsArray = new JSONArray();
-            JSONObject pairObject = new JSONObject();
-            pairObject.put(question.getWord(), question.getAnswer());
-            pairsArray.add(pairObject);
-            questionDetails.put("pairs", pairsArray);
-        } else if (question.getType().equals("Multiple Choice")) {
-            questionDetails.put("options", question.getOptions());
-            
-            // Assuming "Phrase" is a subclass of "Question" and only some "Multiple Choice" questions have phrases
-            if (question instanceof Phrase) {
-                Phrase phrase = (Phrase) question;
-                questionDetails.put("phrase", phrase.getPhrase()); // Now you can safely call getPhrase()
-            }
-        } else if (question.getType().equals("Flashcard")) {
-            questionDetails.put("translation", question.getTranslation());
-        }
-    
-        return questionDetails;
-    }
-    
-    private static boolean writeToFile(JSONArray jsonArray, String fileName) {
-        try (FileWriter file = new FileWriter(fileName)) {
-            file.write(jsonArray.toJSONString());
-            file.flush();
-            return true;
+    /**
+     * Writes a JSONArray to a specified file path in JSON format.
+     * 
+     * @param jsonArray The JSONArray to be written to the file
+     * @param filePath The path of the file where the JSON data should be saved
+     * @return true if the file was successfully written, false otherwise
+     */
+    private static boolean writeToFile(JSONArray jsonArray, String filePath) {
+        try (FileWriter file = new FileWriter(filePath)) {
+            file.write(jsonArray.toJSONString()); // Writes the JSON array to the file
+            file.flush(); // Flushes the stream to ensure data is written
+            return true; // Return success
         } catch (IOException e) {
-            e.printStackTrace();
-            return false;
+            System.err.println("Error writing to file: " + e.getMessage()); // Prints error if writing fails
+            return false; // Return failure
+        }
+    }
+
+    /**
+     * Main method to demonstrate the saving of user data to a file.
+     * 
+     * @param args Command-line arguments
+     */
+    public static void main(String[] args) {
+        try {
+            ArrayList<User> users = DataLoader.getUsers(); // Loads users from the data source
+            boolean saveSuccess = saveUserList(users); // Attempts to save the user list
+            if(saveSuccess) {
+                System.out.println("\nUser data successfully saved to file"); // Success message
+            } else {
+                System.out.println("\nFailed to save user data to file"); // Failure message
+            }
+        } catch (Exception e) {
+            System.out.println("\nError occurred while saving user data: " + e.getMessage()); // Prints exception message
         }
     }
 }
