@@ -253,7 +253,7 @@
     {"english": "relative", "spanish": "pariente"},
     {"english": "ancestor", "spanish": "antepasado"}
   ],
-  "household_items": [
+  "householdItems": [
     {"english": "house", "spanish": "casa"},
     {"english": "apartment", "spanish": "apartamento"},
     {"english": "room", "spanish": "cuarto"},
@@ -466,7 +466,7 @@
     {"english": "drinks", "spanish": "bebidas"},
     {"english": "pet supplies", "spanish": "suministros para mascotas"}
   ],
-  "sportsAcndHobbies": [
+  "sportsAndHobbies": [
     {"english": "football", "spanish": "fútbol"},
     {"english": "basketball", "spanish": "baloncesto"},
     {"english": "baseball", "spanish": "béisbol"},
