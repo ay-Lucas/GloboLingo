@@ -118,9 +118,6 @@ public class DataLoader extends DataConstants {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        for (Phrase phrase : phraseList) {
-            System.out.println(phrase.toString());
-        }
         if (phraseList.size() < 1)
             return null;
         else
