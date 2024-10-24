@@ -2,6 +2,7 @@ package com.globolingo;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
@@ -15,7 +16,8 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader extends DataConstants {
 
     public static void main(String[] args) {
-        loadWords("basics");
+        // loadWords("basics");
+        loadPhrases("basics");
     }
 
     /**
@@ -82,7 +84,7 @@ public class DataLoader extends DataConstants {
                 JSONObject wordJson = (JSONObject) basicsDictionaryJson.get(i);
                 String englishWord = (String) wordJson.get(DICTIONARY_ENGLISH_WORD);
                 String spanishWord = (String) wordJson.get(DICTIONARY_SPANISH_WORD);
-                Word word = new Word(Language.SPANISH, englishWord, spanishWord, "basics");
+                Word word = new Word(Language.SPANISH, englishWord, spanishWord, subject);
                 wordList.add(word);
             }
 
@@ -94,6 +96,35 @@ public class DataLoader extends DataConstants {
             return null;
         else
             return wordList;
+
+    }
+
+    public static ArrayList<Phrase> loadPhrases(String subject) {
+        ArrayList<Phrase> phraseList = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader(PHRASEBOOK_FILE_PATH);
+            JSONObject dictionaryJson = (JSONObject) new JSONParser().parse(reader);
+            JSONArray basicsDictionaryJson = (JSONArray) dictionaryJson.get(PHRASEBOOK_BASICS);
+
+            for (int i = 0; i < basicsDictionaryJson.size(); i++) {
+                JSONObject phraseJson = (JSONObject) basicsDictionaryJson.get(i);
+                String englishphrase = (String) phraseJson.get(PHRASEBOOK_ENGLISH_WORD);
+                String spanishphrase = (String) phraseJson.get(PHRASEBOOK_SPANISH_WORD);
+                ArrayList<String> spanishWords = new ArrayList<String>(Arrays.asList(spanishphrase.split(" ")));
+                Phrase phrase = new Phrase(Language.SPANISH, englishphrase, spanishWords, subject);
+                phraseList.add(phrase);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        for (Phrase phrase : phraseList) {
+            System.out.println(phrase.toString());
+        }
+        if (phraseList.size() < 1)
+            return null;
+        else
+            return phraseList;
 
     }
 
