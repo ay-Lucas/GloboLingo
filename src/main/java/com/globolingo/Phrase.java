@@ -8,17 +8,17 @@ import java.util.ArrayList;
  */
 public class Phrase {
     private String phrase;
-    private ArrayList<Word> translation;
+    private ArrayList<String> translation;
 
         // No constructor in  UML, adding here
     /**
      * Constructor
      * @param phrase The phrase in english
-     * @param translation ArrayList of type Word, will be the phrase in the foreign language
+     * @param translation ArrayList of type String, will be the phrase in the foreign language
      */
-    public Phrase(String phrase, ArrayList<Word> translation)  {
-        setPhrase(phrase);
-        setTranslation(translation);
+    public Phrase(String phrase, ArrayList<String> translation)  {
+        this.phrase = phrase;
+        this.translation = translation;
     }
     /**
      * @return the String value of the phrase in english
@@ -26,15 +26,15 @@ public class Phrase {
     public String getPhrase()  { return this.phrase; }
 
     /**
-     * @return The ArrayList<Word> of the translated phrase
+     * @return The ArrayList<String> of the translated phrase
      */
-    public ArrayList<Word> getTranslation()  { return this.translation; }
+    public ArrayList<String> getTranslation()  { return this.translation; }
 
         // No setters in UML, adding here
     public String getTranslationString() {
         String ret = "";
         for(int i = 0; i<translation.size(); i++)  {
-            ret += translation.get(i);
+            ret += translation.get(i)+" ";
         }
         return ret;
     }
@@ -48,9 +48,9 @@ public class Phrase {
     
     /**
      * 
-     * @param translation ArrayList<Word> value of translated phrase
+     * @param translation ArrayList<String> value of translated phrase
      */
-    public void setTranslation(ArrayList<Word> translation)  {
+    public void setTranslation(ArrayList<String> translation)  {
         this.translation = translation;
     }
 }
