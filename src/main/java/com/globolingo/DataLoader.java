@@ -2,6 +2,7 @@ package com.globolingo;
 
 import java.io.FileReader;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
 
 import org.json.simple.JSONArray;
@@ -15,7 +16,8 @@ import org.json.simple.parser.JSONParser;
 public class DataLoader extends DataConstants {
 
     public static void main(String[] args) {
-        getUsers();
+        // loadWords("basics");
+        loadPhrases("basics");
     }
 
     /**
@@ -66,6 +68,58 @@ public class DataLoader extends DataConstants {
             e.printStackTrace();
         }
         return users;
+    }
+
+    public static ArrayList<Word> loadWords(String subject) {
+        ArrayList<Word> wordList = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader(DICTIONARY_FILE_PATH);
+            JSONObject dictionaryJson = (JSONObject) new JSONParser().parse(reader);
+            JSONArray basicsDictionaryJson = (JSONArray) dictionaryJson.get(DICTIONARY_BASICS);
+
+            for (int i = 0; i < basicsDictionaryJson.size(); i++) {
+                JSONObject wordJson = (JSONObject) basicsDictionaryJson.get(i);
+                String englishWord = (String) wordJson.get(DICTIONARY_ENGLISH_WORD);
+                String spanishWord = (String) wordJson.get(DICTIONARY_SPANISH_WORD);
+                Word word = new Word(Language.SPANISH, englishWord, spanishWord, subject);
+                wordList.add(word);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (wordList.size() < 1)
+            return null;
+        else
+            return wordList;
+
+    }
+
+    public static ArrayList<Phrase> loadPhrases(String subject) {
+        ArrayList<Phrase> phraseList = new ArrayList<>();
+        try {
+            FileReader reader = new FileReader(PHRASEBOOK_FILE_PATH);
+            JSONObject dictionaryJson = (JSONObject) new JSONParser().parse(reader);
+            JSONArray basicsDictionaryJson = (JSONArray) dictionaryJson.get(PHRASEBOOK_BASICS);
+
+            for (int i = 0; i < basicsDictionaryJson.size(); i++) {
+                JSONObject phraseJson = (JSONObject) basicsDictionaryJson.get(i);
+                String englishphrase = (String) phraseJson.get(PHRASEBOOK_ENGLISH_WORD);
+                String spanishphrase = (String) phraseJson.get(PHRASEBOOK_SPANISH_WORD);
+                ArrayList<String> spanishWords = new ArrayList<String>(Arrays.asList(spanishphrase.split(" ")));
+                Phrase phrase = new Phrase(Language.SPANISH, englishphrase, spanishWords, subject);
+                phraseList.add(phrase);
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        if (phraseList.size() < 1)
+            return null;
+        else
+            return phraseList;
+
     }
 
 }

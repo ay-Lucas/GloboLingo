@@ -2,32 +2,28 @@ package com.globolingo;
 
 /**
  * @author Alexander Hughes
- * This class holds all values for a word, including its english and foreign counterparts
+ *         This class holds all values for a word, including its english and
+ *         foreign counterparts
  */
-public class Word implements Item {
+public class Word {
     private Language language;
     private String englishWord;
     private String translation;
-    private String definition;
-    private String type;
-    private String prompt;
-    
+    private String subject;
+
     /**
      * Constructor
-     * @param language the Language this word uses
+     * 
+     * @param language    the Language this word uses
      * @param englishWord English word
      * @param translation Translated word
-     * @param definition A short definition of the word in question
-     * @param type Subject of the word
-     * @param prompt 
+     * @param subject     Subject of the word
      */
-    public Word(Language language, String englishWord, String translation, String definition, String type, String prompt) {
+    public Word(Language language, String englishWord, String translation, String subject) {
         this.language = language;
         this.englishWord = englishWord;
         this.translation = translation;
-        this.definition = definition;
-        this.type = type;
-        this.prompt = prompt;
+        this.subject = subject;
     }
 
     /**
@@ -56,46 +52,17 @@ public class Word implements Item {
 
     /**
      * 
-     * @return the String value of the definition of the word
-     */
-    public String getDefinition() {
-        return definition;
-    }
-
-    /**
-     * 
      * @return the subject of the word
      */
-    public String getType() {
-        return type;
+    public String getSubject() {
+        return subject;
     }
 
-    /**
-     * 
-     * @return the String value prompt for the word
-     */
-    public String getPrompt() {
-        return prompt;
-    }
+    public String toString() {
+        return "\nEnglish world: " + englishWord +
+                "\nTranslation word: " + translation +
+                "\nSubject: " + subject +
+                "\nLanguage: " + language + "\n";
 
-    /**
-     * @return "Word"
-     */
-    public String getItemType() {
-        return "Word";
-    }
-
-    /**
-     * @return String value of word in English
-     */
-    public String getItemName() {
-        return englishWord;
-    }
-
-    /**
-     * @return "Common"
-     */
-    public String getRarity() {
-        return "Common";
     }
 }

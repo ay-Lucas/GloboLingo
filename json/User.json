@@ -95,21 +95,21 @@
     }
   },
   {
-    "username": "saraGreen",
-    "firstName": "Sara",
-    "lastName": "Green",
-    "password": "sevenGreen303",
-    "level": 2,
+    "username": "TammyTonka",
+    "firstName": "Tammy",
+    "lastName": "Tomaomcha",
+    "password": "TammyTomaomcha202",
+    "level": 4,
     "UUID": "d9c3ed42-f7c0-4037-bce7-df8b5e4059c8",
     "courses": [
       {
         "language": "spanish",
-        "currentLesson": 6
+        "currentLesson": 4
       }
     ],
     "isLoggedIn": true,
     "avatar": {
-      "name": "Sky Rider",
+      "name": "Potato Rider",
       "unlocked": ["Keyboard Warrior"]
     }
   }

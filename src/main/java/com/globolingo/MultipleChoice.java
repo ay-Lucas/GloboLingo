@@ -1,5 +1,4 @@
 package com.globolingo;
-import java.util.Scanner;
 import java.util.ArrayList;
 
 /**
@@ -10,16 +9,29 @@ import java.util.ArrayList;
 public class MultipleChoice implements Question  {
         // Likely will need ot be updated to arraylist in class and UML
     private ArrayList<String> options;
+    private Word word;
+    private Phrase phrase;
     private String answer;
+    private boolean correct = false;
 
     /**
      * Constructor
      * @param options ArrayList<String> of the options, should be a list of 4 options, convert Phrases to String before passing
      * @param answer String answer of the correct answer.
      */
-    public MultipleChoice(ArrayList<String> options, String answer)  {
-        setOptions(options);
-        setAnswer(answer);
+    public MultipleChoice(ArrayList<String> options, Word word)  {
+        this.options = options;
+        this.word = word;
+        this.phrase = null;
+        this.answer = word.getTranslation();
+        
+    }
+    public MultipleChoice(ArrayList<String> options, Phrase phrase)  {
+        this.options = options;
+        this.phrase = phrase;
+        this.word = null;
+        this.answer = phrase.getTranslationString();
+        
     }
 
         // Getters not present in UML
@@ -40,30 +52,28 @@ public class MultipleChoice implements Question  {
 
     /**
      * 
-     * @return boolean if input is equal to the answer to this question.
+     * @return the boolean value of if the question was answered correctly or not, default false.
      */
     @Override
-    public boolean isCorrect(String input) {
-        return this.answer.equalsIgnoreCase(input);
+    public boolean isCorrect() {
+        return this.correct;
     }
 
     /**
-     * Possibly a temp implementation, recieves input from Scanner, passes input to IsCorrect and outputs to console.
-     * Will need to further implement tracking correct answers and such.
+     * Grabs the input and compares to the answer, if equal, then sets correct to true.
+     * @param input the String value input to be compared to the answer NOTE: can be A B C D
      */
     @Override
-    public void getUserInput() {
-        // Temp implementation before UI implementation
-        Scanner keyboard = new Scanner(System.in);
-        System.out.println("Please enter your answer.");
-        String input = keyboard.nextLine();
-        if(isCorrect(input))  {
-            //TODO Implement all the tracking and stuff with Lesson
-            System.out.println("Answer is correct.");
-        } else { 
-            System.out.println("Answer is incorrect.");
+    public void getUserInput(String input) {
+        String temp;
+        switch(input.toLowerCase())  {
+            case "a": temp = options.get(0); break;
+            case "b": temp = options.get(1); break;
+            case "c": temp = options.get(2); break;
+            case "d": temp = options.get(3); break;
+            default: temp = input;
         }
-        
+        this.correct = temp.equalsIgnoreCase(answer);
     }
     /**
      * Sets options to input, called by constructor
@@ -80,5 +90,13 @@ public class MultipleChoice implements Question  {
     */
     public void setAnswer(String answer)  {
         this.answer = answer;
+    }
+
+    @Override
+    public String toString()  {
+        return "How do you say " + word.getEnglishWord() + " in " +
+        word.getLanguage() + "?\n A) " + options.get(0) + "\nB) " +
+        options.get(1) + "\nC) " + options.get(2) + "\nD) " + 
+        options.get(3);
     }
 }
