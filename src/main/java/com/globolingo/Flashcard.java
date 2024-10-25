@@ -13,10 +13,12 @@ public class Flashcard implements Question  {
         //UML has C in flashcard capitalized, may need to be updated.
     public Flashcard(Word word)  {
         this.answer = word.getEnglishWord();
+        this.prompt = word.getTranslation();
     }
 
     public Flashcard(Phrase phrase)  {
-        this.answer = phrase.getPhrase();
+        this.answer = phrase.getEnglishPhrase();
+        this.prompt = phrase.getTranslationString();
     }
 
         // Getter not present in UML
@@ -40,7 +42,7 @@ public class Flashcard implements Question  {
      */
     @Override
     public void getUserInput(String input) {
-        this.correct = input.equalsIgnoreCase(prompt);
+        this.correct = input.equalsIgnoreCase(answer);
     }
 
     /**
@@ -64,5 +66,10 @@ public class Flashcard implements Question  {
      */
     public void setAnswer(String answer)  {
         this.answer = answer;
+    }
+
+    @Override
+    public String toString()  {
+        return "What does \"" + this.prompt + "\" mean in English?";
     }
 }

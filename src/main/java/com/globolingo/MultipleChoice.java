@@ -30,7 +30,7 @@ public class MultipleChoice implements Question  {
         this.options = options;
         this.phrase = phrase;
         this.word = null;
-        this.answer = phrase.getPhrase();
+        this.answer = phrase.getTranslationString();
         
     }
 

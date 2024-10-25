@@ -14,7 +14,6 @@ public class SentenceBuild implements Question {
      * Constructor
      * @param sentence the Phrase of the sentence to be built
      */
-        // No constructor in UML
     public SentenceBuild(Phrase sentence)  {
         this.sentence = sentence;
     }
@@ -28,7 +27,7 @@ public class SentenceBuild implements Question {
     @Override
     public String getAnswer()  {
         // Based on how this would function, we know that the sentence is the answer, so just going to cap this;
-        return this.sentence.getTranslation().toString();
+        return this.sentence.getTranslationString();
     }
 
     /**
@@ -53,5 +52,11 @@ public class SentenceBuild implements Question {
         // No setters in UML
     public void setSentence(Phrase phrase)  {
         this.sentence = phrase;
+    }
+
+    @Override
+    public String toString() {
+        return "Rearrange the words to create the English phrase: \""+ 
+        sentence.getEnglishPhrase() + "\"";
     }
 }
