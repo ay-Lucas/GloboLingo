@@ -55,9 +55,12 @@ public class User {
         setLastName(lastName);
         setUUID(UUID.randomUUID());
         unlockedAvatars = new ArrayList<>();
-        //TODO: fix this. courseList.add(new Course(Language.SPANISH, this)); 
+        courseList = new ArrayList<>();
+        courseList.add(new Course(Language.SPANISH, this));
+        this.uuid = UUID.randomUUID();  // Generate new UUID for the user
+        this.avatar = new AvatarManager().getAvatar("default");  // Set default avatar
+        this.level = 1;  // Set initial level
     }
-
     /**
      * Creates a new instance of User
      * 

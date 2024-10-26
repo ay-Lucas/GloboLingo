@@ -10,6 +10,8 @@ public class Lesson  {
     private ArrayList<Question> questions;
     private int userScore;
     private int maxScore;
+    private int difficulty;
+
         
     public Lesson(String name, int lessonNumber)  {
         this.userScore = 0;
@@ -170,4 +172,13 @@ public class Lesson  {
     public void addUserScore()  {
         this.userScore++;
     }
+
+    public int getDifficulty() {
+        return this.difficulty;
+    }
+    
+    public void setDifficulty(int difficulty) {
+        this.difficulty = difficulty;
+    }
+    
 }

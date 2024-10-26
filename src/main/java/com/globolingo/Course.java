@@ -3,10 +3,11 @@ package com.globolingo;
 import java.util.ArrayList;
 
 public class Course {
-    private ArrayList<Lesson> lessons;
+    ArrayList<Lesson> lessons;
     private Lesson currentLesson;
     private Language language;
     private User user;
+    private int completedLessons;
     
     public Lesson getCurrentLesson() {
         return currentLesson;
@@ -14,13 +15,14 @@ public class Course {
     
     public void setCurrentLesson(Lesson lesson) {
         this.currentLesson = lesson;
-    } 
+    }
 
     public Course(Language language, User user) {
         this.language = language;
         this.lessons = new ArrayList<>();
         this.language = language;
         this.user = user;
+        this.completedLessons = 0;
     }
 
     public Course(Language language, User user, int currentLessonNum) {
@@ -32,8 +34,7 @@ public class Course {
     }
 
     public void createLesson(String subject, int difficulty) {
-        ArrayList<Question> questions = new ArrayList<>();
-        Lesson newLesson = new Lesson(subject, difficulty, questions, 0, 100);
+        Lesson newLesson = new Lesson(subject, difficulty);
         lessons.add(newLesson);
     }
 
@@ -61,5 +62,17 @@ public class Course {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public int getCompletedLessons() {
+        return completedLessons;
+    }
+    
+    public void incrementCompletedLessons() {
+        this.completedLessons++;
+    }
+
+    public ArrayList<Lesson> getLessons() {
+        return lessons;
     }
 }
