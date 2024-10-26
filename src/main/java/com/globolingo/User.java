@@ -68,16 +68,26 @@ public class User {
      * @param password
      * @param uuid
      */
-    public User(String username, String password, String firstName, String lastname, UUID uuid, int level,
+    public User(String username, String password, String firstName, String lastname, int level, UUID uuid,
             Avatar avatar, ArrayList<Avatar> unlockedAvatars) {
         setUsername(username);
         setPassword(password);
         this.firstName = firstName;
         this.lastName = lastname;
         this.level = level;
-        this.uuid = uuid;
+        if(uuid == null) {
+            this.uuid = UUID.randomUUID();  // Generate new UUID for the user
+        }
+        else {
+            this.uuid = uuid;
+        }
+        if(avatar == null) {
+            this.avatar = new Avatar();
+        }
+        else {
         this.avatar = avatar;
-        this.unlockedAvatars = unlockedAvatars;
+        }
+        this.unlockedAvatars = new ArrayList<>();
         this.courseList = new ArrayList<>();
     }
 

@@ -4,8 +4,9 @@ import java.util.ArrayList;
 import java.util.UUID;
 
 public class UserList extends DataConstants {
-    private ArrayList<User> users;
+
     private static UserList instance;
+    private ArrayList<User> users;
 
     private UserList() {
         users = DataLoader.getUsers();
@@ -86,6 +87,16 @@ public class UserList extends DataConstants {
     }
 
     public void addUser(User user) {
+        for ( User i : users ) { // i is a loop variables
+            if(i.getUsername().equals(user.getUsername())) {
+                System.out.println("Error: username taken. Try Again.");
+                return;
+            };
+            if(i.getUUID().equals(user.getUUID())) {
+                System.out.println("Error: UUID taken. Try Again.");
+                return;
+            };
+        }
         users.add(user);
         saveUsers();
     }

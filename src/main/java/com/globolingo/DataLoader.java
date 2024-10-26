@@ -51,7 +51,7 @@ public class DataLoader extends DataConstants {
                     unlockedAvatars.add(unlockedAvatar);
                 }
                 Avatar avatar = avatarManager.getAvatar(avatarName);
-                User user = new User(username, password, firstName, lastName, id, level, avatar, unlockedAvatars);
+                User user = new User(username, password, firstName, lastName, level, id, avatar, unlockedAvatars);
                 JSONArray coursesJsonArray = (JSONArray) userJSON.get(USER_COURSES);
                 for (int j = 0; j < coursesJsonArray.size(); j++) {
                     JSONObject courseObject = (JSONObject) coursesJsonArray.get(j);

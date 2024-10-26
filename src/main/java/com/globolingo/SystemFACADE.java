@@ -20,7 +20,7 @@ public class SystemFACADE {
         if (userList.getUser(username) != null) {
             return false;
         }
-        userList.addUser(username, firstName, lastName, password);
+        // userList.addUser(username, firstName, lastName, password);
         return true;
     }
 
