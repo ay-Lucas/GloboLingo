@@ -155,6 +155,6 @@ public class AvatarManager {
                 return next;
             }
         }
-        return null;
+        return new Avatar();
     }
 }

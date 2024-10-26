@@ -11,6 +11,15 @@ public class Avatar {
     private final boolean isDefault;
 
     /**
+     * Default contstructor for Avatar
+     */
+    public Avatar() {
+        this.name = "default";
+        this.path = "default";
+        this.isDefault = true;
+    }
+
+    /**
      * Creates a new Avatar
      * 
      * @param name
