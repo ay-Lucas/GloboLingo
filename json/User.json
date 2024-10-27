@@ -69,11 +69,11 @@
     "firstName": "Tim",
     "lastName": "Tomacka",
     "courses": [],
-    "password": "01234567",
+    "password": "012345678",
     "level": 0,
     "isLoggedIn": true,
     "avatar": { "name": "default", "unlocked": [] },
-    "UUID": "eb861e9c-9049-45a8-870b-de6438579786",
+    "UUID": "5bd1cfb2-f6c4-4c54-b5fe-ca94d6df7bc6",
     "username": "ttom"
   }
 ]

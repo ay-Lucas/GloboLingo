@@ -16,17 +16,17 @@ public class SystemFACADE {
         avatarManager = new AvatarManager();
     }
 
-    public boolean createAccount(String username, String firstName, String lastName, String password) {
-        if (userList.getUser(username) != null) {
-            return false;
+    public void createAccount(String username, String password, String firstName, String lastName) {
+        User newUser = new User(username, password, firstName, lastName, 0, null, null, null);
+        if(userList.addUser(newUser)) {
+            login(username, password);
         }
-        // userList.addUser(username, firstName, lastName, password);
-        return true;
     }
 
     public boolean login(String username, String password) {
         User user = userList.getUser(username);
         if (user != null && user.getPassword().equals(password)) {
+            System.out.println(" \n Hello, " + user.getFirstName() + "\n");
             currentUser = user;
             currentUser.setLoggedIn(true);
             userList.saveUser(currentUser);
