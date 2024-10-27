@@ -137,8 +137,12 @@ public class Lesson  {
                     tempQ = new MultipleChoice(outputPhrase, answerPhrase);
                 }
 
-                case 4,5,6 -> tempQ = new SentenceBuild(subjectPhrases.get(rng.nextInt(subjectPhrases.size()+1)));
+                case 4 -> tempQ = new SentenceBuild(subjectPhrases.get(rng.nextInt(subjectPhrases.size()+1)));
 
+                case 5 -> tempQ = new NarratedQ(subjectWords.get(rng.nextInt(subjectWords.size()+1)));
+                
+                case 6 -> tempQ = new NarratedQ(subjectPhrases.get(rng.nextInt(subjectPhrases.size()+1)));
+                
                 case 7,8 -> tempQ = new Flashcard(subjectWords.get(rng.nextInt(subjectWords.size()+1)));
 
                 case 9 -> tempQ = new Flashcard(subjectPhrases.get(rng.nextInt(subjectPhrases.size()+1)));
