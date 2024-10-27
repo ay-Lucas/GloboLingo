@@ -16,9 +16,14 @@ public class NarratedQ implements Question  {
      * @param prompt Spanish prompt to be played
      * @param answer English answer
      */
-    public NarratedQ(String prompt, String answer)  {
-        this.prompt = prompt;
-        this.answer = answer;
+    public NarratedQ(Word word)  {
+        this.prompt = word.getTranslation();
+        this.answer = word.getEnglishWord();
+    }
+    
+    public NarratedQ(Phrase phrase)  {
+        this.prompt = phrase.getTranslationString();
+        this.prompt = phrase.getEnglishPhrase();
     }
 
     /**
