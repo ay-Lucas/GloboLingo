@@ -86,19 +86,20 @@ public class UserList extends DataConstants {
         }
     }
 
-    public void addUser(User user) {
+    public boolean addUser(User user) {
         for ( User i : users ) { // i is a loop variables
             if(i.getUsername().equals(user.getUsername())) {
                 System.out.println("Error: username taken. Try Again.");
-                return;
+                return false;
             };
             if(i.getUUID().equals(user.getUUID())) {
                 System.out.println("Error: UUID taken. Try Again.");
-                return;
+                return false;
             };
         }
         users.add(user);
         saveUsers();
+        return true;
     }
 
     private void saveUsers() {

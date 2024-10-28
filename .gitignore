@@ -29,3 +29,4 @@ target/*
 # JSON files
 User.json
 
+.aws/
