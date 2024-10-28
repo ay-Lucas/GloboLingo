@@ -45,23 +45,15 @@ public class SystemFACADE {
         }
     }
 
-    public void createCourse(Language language) {
+    public void startLearning(Language language) {
         if (currentUser != null) {
-            Course newCourse = new Course(language, currentUser);
+            Course newCourse = new Course(language, currentUser, currentUser.getLevel());
             currentUser.addCourse(newCourse);
             userList.saveUser(currentUser);
             this.currentCourse = newCourse;
         }
     }
 
-    // public void setCurrentCourse(Course course) {
-    //     for (Course x : )
-    //     this.currentCourse = course;
-    // }
-
-    public void startLesson() {
-
-    }
 
     public void addCompletedLesson() {
         currentCourse.incrementCompletedLessons();

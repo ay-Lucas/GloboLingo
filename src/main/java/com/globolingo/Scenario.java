@@ -8,6 +8,7 @@ public class Scenario {
     static SystemFACADE sf = new SystemFACADE();
 
     private static void scenario1() {
+        System.out.println("---------SCENARIO 1--------- \n");
 
         System.out.println("Loaded from User.json via UserList");
         
@@ -26,8 +27,9 @@ public class Scenario {
 
     public static void scenario2() {
         // Start Tim's learning session
-        sf.createCourse(Language.SPANISH);
-        sf.setCurrentCourse(null);
+        System.out.println("Let's start learning, " + sf.getCurrentUser());
+        sf.startLearning(Language.SPANISH);
+        
     }
 
     /**
@@ -35,6 +37,7 @@ public class Scenario {
      * @param args
      */
     public static void displayJSON() {
+        System.out.println("---------SCENARIO 2--------- \n");
         System.out.println("Users from User.json:");
         for (User user : DataLoader.getUsers()) {
             System.out.println(user + "\n");
@@ -43,9 +46,7 @@ public class Scenario {
     
 
     public static void main(String[] args) {
-        System.out.println("Scenario 1 \n");
         scenario1();
-        System.out.println("Scenario 2 \n");
         scenario2();
     }
 }

@@ -3,7 +3,7 @@ package com.globolingo;
 import java.util.ArrayList;
 
 public class Course {
-    ArrayList<Lesson> lessons;
+    private ArrayList<Lesson> lessons;
     private Lesson currentLesson;
     private Language language;
     private User user;
