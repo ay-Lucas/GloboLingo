@@ -26,7 +26,8 @@ public class Scenario {
 
     public static void scenario2() {
         // Start Tim's learning session
-
+        sf.createCourse(Language.SPANISH);
+        sf.setCurrentCourse(null);
     }
 
     /**
