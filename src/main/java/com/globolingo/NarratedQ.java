@@ -59,4 +59,9 @@ public class NarratedQ implements Question  {
     public String getAnswer() {
         return this.answer;
     }
+
+    @Override
+    public String toString()  {
+        return "What does this mean in english? Please type in your response.";
+    }
 }
