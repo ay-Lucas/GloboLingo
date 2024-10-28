@@ -83,6 +83,10 @@ public class Lesson  {
                 subjectWords = DataLoader.loadWords("sportsAndHobbies");  
                 subjectPhrases = DataLoader.loadPhrases("sportsAndHobbies");
             }
+            default -> {
+                subjectWords = DataLoader.loadWords("basics");
+                subjectPhrases = DataLoader.loadPhrases("basics");
+            }
         }
         
 
