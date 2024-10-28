@@ -70,6 +70,12 @@ public class DataLoader extends DataConstants {
         return users;
     }
 
+    /**
+     * Loads Words from Dictionary.json
+     * 
+     * @param subject
+     * @return
+     */
     public static ArrayList<Word> loadWords(String subject) {
         ArrayList<Word> wordList = new ArrayList<>();
         try {
@@ -96,6 +102,12 @@ public class DataLoader extends DataConstants {
 
     }
 
+    /**
+     * Loads Phrases from Phrasebook.json
+     * 
+     * @param subject
+     * @return ArrayList of Phrase
+     */
     public static ArrayList<Phrase> loadPhrases(String subject) {
         ArrayList<Phrase> phraseList = new ArrayList<>();
         try {

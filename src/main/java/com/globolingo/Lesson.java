@@ -4,6 +4,10 @@ import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ * The Lesson class represents a learning session that contains a series of
+ * questions. It tracks the user's score and whether the lesson is complete.
+ */
 public class Lesson {
 
     private String name;
@@ -12,9 +16,14 @@ public class Lesson {
     private int userScore;
     private int maxScore;
     private int difficulty;
-
     private Scanner k = new Scanner(System.in);
 
+    /**
+     * Constructs a new Lesson with the specified lesson number, initializing the
+     * score and generating questions.
+     * 
+     * @param lessonNumber the number of the lesson to initialize
+     */
     public Lesson(int lessonNumber) {
         this.userScore = 0;
         this.maxScore = 10;
@@ -22,31 +31,62 @@ public class Lesson {
         this.generateQuestions(lessonNumber);
     }
 
+    /**
+     * Retrieves the name of the lesson.
+     * 
+     * @return the name of the lesson
+     */
     public String getName() {
         return this.name;
     }
 
+    /**
+     * Checks if the lesson is complete.
+     * 
+     * @return true if the lesson is complete, false otherwise
+     */
     public boolean getIsComplete() {
         return this.isComplete;
     }
 
+    /**
+     * Retrieves the list of questions in the lesson.
+     * 
+     * @return an ArrayList containing the questions
+     */
     public ArrayList<Question> getQuestions() {
         return this.questions;
     }
 
+    /**
+     * Retrieves the user's score for the lesson.
+     * 
+     * @return the user's score
+     */
     public int getUserScore() {
         return this.userScore;
     }
 
+    /**
+     * Retrieves the maximum score for the lesson.
+     * 
+     * @return the maximum score
+     */
     public int getMaxScore() {
         return this.maxScore;
     }
 
+    /**
+     * Generates a set of questions based on the lesson number.
+     * 
+     * @param lessonNumber the number of the lesson for which to generate questions
+     */
     public void generateQuestions(int lessonNumber) {
         ArrayList<Question> tq = new ArrayList<>();
         Random rng = new Random();
         ArrayList<Word> subjectWords = new ArrayList<>();
         ArrayList<Phrase> subjectPhrases = new ArrayList<>();
+
         switch (lessonNumber) {
             case 1 -> {
                 subjectWords = DataLoader.loadWords("basics");
@@ -98,7 +138,7 @@ public class Lesson {
             Question tempQ = null;
 
             switch (i) {
-                case 0, 1 -> { // Mulitple choice for words
+                case 0, 1 -> { // Multiple choice for words
                     ArrayList<String> options = new ArrayList<>();
                     ArrayList<String> output = new ArrayList<>();
                     ArrayList<Integer> selectedNums = new ArrayList<>();
@@ -121,7 +161,7 @@ public class Lesson {
                     tempQ = new MultipleChoice(output, answer);
                 }
 
-                case 2, 3 -> { // Multiple choices for Phrases
+                case 2, 3 -> { // Multiple choices for phrases
                     ArrayList<String> optionsPhrase = new ArrayList<>();
                     ArrayList<String> outputPhrase = new ArrayList<>();
                     ArrayList<Integer> selectedNumsPhrase = new ArrayList<>();
@@ -166,46 +206,86 @@ public class Lesson {
         this.setQuestions(tq);
     }
 
-    // No setters present in UML
+    /**
+     * Sets the name of the lesson.
+     * 
+     * @param name the name to set for the lesson
+     */
     public void setName(String name) {
         this.name = name;
     }
 
+    /**
+     * Sets the completion status of the lesson.
+     * 
+     * @param completion the completion status to set
+     */
     public void setCompletion(boolean completion) {
         this.isComplete = completion;
     }
 
+    /**
+     * Sets the list of questions for the lesson.
+     * 
+     * @param questions the ArrayList of questions to set
+     */
     public void setQuestions(ArrayList<Question> questions) {
         this.questions = questions;
     }
 
+    /**
+     * Sets the user's score for the lesson.
+     * 
+     * @param userScore the score to set for the user
+     */
     public void setUserScore(int userScore) {
         this.userScore = userScore;
     }
 
+    /**
+     * Sets the maximum score for the lesson.
+     * 
+     * @param maxScore the maximum score to set
+     */
     public void setMaxScore(int maxScore) {
         this.maxScore = maxScore;
     }
 
+    /**
+     * Increments the user's score by one.
+     */
     public void addUserScore() {
         this.userScore++;
     }
 
+    /**
+     * Retrieves the difficulty level of the lesson.
+     * 
+     * @return the difficulty level
+     */
     public int getDifficulty() {
         return this.difficulty;
     }
 
+    /**
+     * Sets the difficulty level for the lesson.
+     * 
+     * @param difficulty the difficulty level to set
+     */
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
     }
 
+    /**
+     * Initiates the question-answer session for the lesson.
+     */
     public void doQuestions() {
         System.out.println("BEGINNING LESSON");
         for (int i = 0; i < questions.size(); i++) {
             Question q = questions.get(i);
             System.out.println(q);
-            if(q instanceof NarratedQ) {
-                ((NarratedQ)q).playSound();
+            if (q instanceof NarratedQ) {
+                ((NarratedQ) q).playSound();
             }
             System.out.println("Enter Answer");
             q.getUserInput(k.nextLine());
