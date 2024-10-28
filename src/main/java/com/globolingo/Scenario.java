@@ -27,7 +27,7 @@ public class Scenario {
 
     public static void scenario2() {
         // Start Tim's learning session
-        System.out.println("Let's start learning, " + sf.getCurrentUser());
+        System.out.println("Let's start learning, " + sf.getCurrentUser().getUsername());
         sf.startLearning(Language.SPANISH);
         
     }
@@ -48,5 +48,6 @@ public class Scenario {
     public static void main(String[] args) {
         scenario1();
         scenario2();
+        sf.removeCurrentUser();
     }
 }

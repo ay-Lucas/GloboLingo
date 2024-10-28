@@ -84,6 +84,10 @@ public class SystemFACADE {
         }
     }
 
+    public void removeCurrentUser() {
+        userList.removeUser(currentUser.getUsername());
+    }
+
     // Getters
     public User getCurrentUser() { return currentUser; }
     public Course getCurrentCourse() { return currentCourse; }

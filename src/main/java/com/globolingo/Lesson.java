@@ -13,21 +13,20 @@ public class Lesson  {
     private int difficulty;
 
         
-    public Lesson(String name, int lessonNumber)  {
+    public Lesson(int lessonNumber)  {
         this.userScore = 0;
         this.maxScore = 10;
         this.isComplete = false;
-        this.name = name;
         this.generateQuestions(lessonNumber);
     }
 
-    public Lesson(String name, ArrayList<Question> questions, int userScore, int maxScore)  {
-        this.name = name;
-        this.questions = questions;
-        this.userScore = userScore;
-        this.maxScore = maxScore;
+    // public Lesson(String name, ArrayList<Question> questions, int userScore, int maxScore)  {
+    //     this.name = name;
+    //     this.questions = questions;
+    //     this.userScore = userScore;
+    //     this.maxScore = maxScore;
+    // }
 
-    }
     public String getName()  { return this.name; }
 
     public boolean getIsComplete()  { return this.isComplete; }
