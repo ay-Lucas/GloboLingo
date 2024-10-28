@@ -51,6 +51,13 @@ public class SystemFACADE {
             currentUser.addCourse(newCourse);
             userList.saveUser(currentUser);
             this.currentCourse = newCourse;
+            this.currentCourse.doLesson();
+        }
+    }
+
+    public void continueLearning() {
+        if (currentUser != null || this.currentCourse != null) {
+            this.currentCourse.doLesson();
         }
     }
 

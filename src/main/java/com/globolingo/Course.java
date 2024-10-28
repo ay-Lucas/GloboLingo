@@ -35,11 +35,16 @@ public class Course {
         this.user = user;
     }
 
+
     public void generateLessons() {
         for(int i=1; i <= MAX_LESSONS; i++) {
             this.lessons.add(new Lesson(i));
-            System.out.println("Loaded question " + i);
+            System.out.println("Loaded Lesson" + i);
         }
+    }
+
+    public void doLesson() {
+        this.currentLesson.doQuestions();
     }
 
     public int viewResults() {

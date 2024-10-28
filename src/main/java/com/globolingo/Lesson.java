@@ -88,8 +88,6 @@ public class Lesson  {
                 subjectPhrases = DataLoader.loadPhrases("basics");
             }
         }
-        
-        System.out.println("DEBUG: " + subjectWords);
 
         for(int i = 0; i < 9; i++)  {
             Question tempQ = null;
@@ -187,6 +185,14 @@ public class Lesson  {
     
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
+    }
+
+    public void doQuestions() {
+        System.out.println("BEGINNING LESSON");
+        for(int i=0; i < questions.size(); i++) {
+            System.out.println(questions.get(i));
+            System.out.println("ENTER ANSWER HERE");
+        }
     }
     
 }
