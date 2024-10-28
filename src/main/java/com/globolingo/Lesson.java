@@ -1,6 +1,7 @@
 package com.globolingo;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class Lesson  {
@@ -11,6 +12,8 @@ public class Lesson  {
     private int userScore;
     private int maxScore;
     private int difficulty;
+
+    private Scanner k = new Scanner(System.in);
         
     public Lesson(int lessonNumber)  {
         this.userScore = 0;
@@ -188,11 +191,18 @@ public class Lesson  {
 
     public void doQuestions() {
         System.out.println("BEGINNING LESSON");
-        for(int i=0; i <= questions.size(); i++) {
+        for(int i=0; i < questions.size(); i++) {
             Question q = questions.get(i);
             System.out.println(q);
-            q.getUserInput(UI.getInput());
+            q.getUserInput(k.nextLine());
+            if(q.isCorrect()) {
+                System.out.println("CORRECT");
+                userScore++;
+            }
+            else {
+                System.out.println("WRONG");
+            }
         }
+        System.out.println("SCORE: " + userScore + " out of" + maxScore);
     }
-    
 }
