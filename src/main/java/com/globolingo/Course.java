@@ -12,18 +12,11 @@ public class Course {
 
     /**
      * Constructor for course
-     * 
-     * @param language
-     * @param user
-     *                 =======
-     * 
-     *                 /**
-     *                 Constructs a new Course with the specified language and user.
-     *                 Initializes an empty list of lessons.
+     * Constructs a new Course with the specified language and user.
+     * Initializes an empty list of lessons.
      * 
      * @param language the Language object representing the language of the course
      * @param user     the User object representing the user enrolled in the course
-     *                 >>>>>>> 3a85250 (javadoc and formatting)
      */
     public Course(Language language, User user) {
         this.language = language;
@@ -34,23 +27,13 @@ public class Course {
     }
 
     /**
-     * <<<<<<< HEAD
      * Course Constructor
+     * Constructs a new Course with the specified language,
+     * user, and sets the current lesson based on the provided lesson number.
      * 
-     * @param language
-     * @param user
-     * @param currentLessonNum
-     *                         Constructs a new Course with the specified language,
-     *                         user, and
-     *                         sets the current lesson based on the provided lesson
-     *                         number.
-     * 
-     * @param language         the Language object representing the language of the
-     *                         course
-     * @param user             the User object representing the user enrolled in the
-     *                         course
+     * @param language the Language object representing the language of the course
+     * @param user     the User object representing the user enrolled in the course
      * @param currentLessonNum the index of the current lesson to be set
-     *                         >>>>>>> 3a85250 (javadoc and formatting)
      */
     public Course(Language language, User user, int currentLessonNum) {
         this.language = language;
@@ -62,9 +45,7 @@ public class Course {
     }
 
     /**
-     * <<<<<<< HEAD
      * Loads the lessons
-     * =======
      * Retrieves the current lesson in the course.
      * 
      * @return the Lesson object representing the current lesson
