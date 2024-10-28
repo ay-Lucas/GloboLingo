@@ -1,7 +1,5 @@
 package com.globolingo;
 
-import java.util.ArrayList;
-
 public class Scenario {
 
     // Initialize SystemFACADE
@@ -44,7 +42,6 @@ public class Scenario {
         }
     }
     
-
     public static void main(String[] args) {
         scenario1();
         scenario2();

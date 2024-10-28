@@ -56,7 +56,7 @@ public class SentenceBuild implements Question {
 
     @Override
     public String toString() {
-        return "Rearrange the words to create the English phrase: \""+ 
+        return "Translate the words to match the phrase: \"" + 
         sentence.getEnglishPhrase() + "\"";
     }
 }

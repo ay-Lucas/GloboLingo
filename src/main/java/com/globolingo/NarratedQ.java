@@ -30,6 +30,7 @@ public class NarratedQ implements Question  {
      * Plays the prompt as a sound
      */
     public void playSound()  {
+        System.out.println("...playing sound...");
         Narriator.playSound(prompt);
     }
 

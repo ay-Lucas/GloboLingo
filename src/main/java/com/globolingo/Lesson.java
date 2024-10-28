@@ -1,10 +1,10 @@
 package com.globolingo;
+
 import java.util.ArrayList;
 import java.util.Random;
 import java.util.Scanner;
 
-
-public class Lesson  {
+public class Lesson {
 
     private String name;
     private boolean isComplete;
@@ -14,37 +14,48 @@ public class Lesson  {
     private int difficulty;
 
     private Scanner k = new Scanner(System.in);
-        
-    public Lesson(int lessonNumber)  {
+
+    public Lesson(int lessonNumber) {
         this.userScore = 0;
         this.maxScore = 10;
         this.isComplete = false;
         this.generateQuestions(lessonNumber);
     }
 
-    // public Lesson(String name, ArrayList<Question> questions, int userScore, int maxScore)  {
-    //     this.name = name;
-    //     this.questions = questions;
-    //     this.userScore = userScore;
-    //     this.maxScore = maxScore;
+    // public Lesson(String name, ArrayList<Question> questions, int userScore, int
+    // maxScore) {
+    // this.name = name;
+    // this.questions = questions;
+    // this.userScore = userScore;
+    // this.maxScore = maxScore;
     // }
 
-    public String getName()  { return this.name; }
+    public String getName() {
+        return this.name;
+    }
 
-    public boolean getIsComplete()  { return this.isComplete; }
+    public boolean getIsComplete() {
+        return this.isComplete;
+    }
 
-    public ArrayList<Question> getQuestions() { return this.questions; }
+    public ArrayList<Question> getQuestions() {
+        return this.questions;
+    }
 
-    public int getUserScore()  { return this.userScore; }
+    public int getUserScore() {
+        return this.userScore;
+    }
 
-    public int getMaxScore()  { return this.maxScore; }
+    public int getMaxScore() {
+        return this.maxScore;
+    }
 
-    public void generateQuestions(int lessonNumber)  {
+    public void generateQuestions(int lessonNumber) {
         ArrayList<Question> tq = new ArrayList<>();
         Random rng = new Random();
         ArrayList<Word> subjectWords = new ArrayList<>();
         ArrayList<Phrase> subjectPhrases = new ArrayList<>();
-        switch(lessonNumber)  {
+        switch (lessonNumber) {
             case 1 -> {
                 subjectWords = DataLoader.loadWords("basics");
                 subjectPhrases = DataLoader.loadPhrases("basics");
@@ -82,7 +93,7 @@ public class Lesson  {
                 subjectPhrases = DataLoader.loadPhrases("shoppingAndConsumerGoods");
             }
             case 10 -> {
-                subjectWords = DataLoader.loadWords("sportsAndHobbies");  
+                subjectWords = DataLoader.loadWords("sportsAndHobbies");
                 subjectPhrases = DataLoader.loadPhrases("sportsAndHobbies");
             }
             default -> {
@@ -91,11 +102,11 @@ public class Lesson  {
             }
         }
 
-        for(int i = 0; i < 9; i++)  {
+        for (int i = 0; i < 9; i++) {
             Question tempQ = null;
-  
-            switch(i)  {
-                case 0,1 -> { // Mulitple choice for words
+
+            switch (i) {
+                case 0, 1 -> { // Mulitple choice for words
                     ArrayList<String> options = new ArrayList<>();
                     ArrayList<String> output = new ArrayList<>();
                     ArrayList<Integer> selectedNums = new ArrayList<>();
@@ -103,22 +114,22 @@ public class Lesson  {
                     Word answer = subjectWords.get(selectedNums.get(0));
                     options.add(answer.getTranslation());
 
-                    for(int j = 1; j < 4; j++) {
+                    for (int j = 1; j < 4; j++) {
                         int tracker = selectedNums.get(0);
-                        while(selectedNums.contains(tracker))
+                        while (selectedNums.contains(tracker))
                             tracker = rng.nextInt(subjectWords.size());
                         options.add(subjectWords.get(tracker).getTranslation());
                         selectedNums.add(tracker);
                     }
 
-                    for(int j = 0; j < 4; j++)  {
+                    for (int j = 0; j < 4; j++) {
                         output.add(options.get(rng.nextInt(options.size())));
                     }
-                    
+
                     tempQ = new MultipleChoice(output, answer);
                 }
 
-                case 2,3 -> { // Multiple choices for Phrases
+                case 2, 3 -> { // Multiple choices for Phrases
                     ArrayList<String> optionsPhrase = new ArrayList<>();
                     ArrayList<String> outputPhrase = new ArrayList<>();
                     ArrayList<Integer> selectedNumsPhrase = new ArrayList<>();
@@ -126,28 +137,34 @@ public class Lesson  {
                     Phrase answerPhrase = subjectPhrases.get(selectedNumsPhrase.get(0));
                     optionsPhrase.add(answerPhrase.getTranslationString());
 
-                    for(int j = 1; j < 4; j++) {
+                    for (int j = 1; j < 4; j++) {
                         int tracker = selectedNumsPhrase.get(0);
-                        while(selectedNumsPhrase.contains(tracker))
+                        while (selectedNumsPhrase.contains(tracker))
                             tracker = rng.nextInt(subjectPhrases.size());
                         optionsPhrase.add(subjectPhrases.get(tracker).getTranslationString());
                         selectedNumsPhrase.add(tracker);
                     }
 
-                    for(int j = 0; j < 4; j++)  {
+                    for (int j = 0; j < 4; j++) {
                         outputPhrase.add(optionsPhrase.get(rng.nextInt(optionsPhrase.size())));
                     }
-                    
+
                     tempQ = new MultipleChoice(outputPhrase, answerPhrase);
                 }
 
                 case 4 -> tempQ = new SentenceBuild(subjectPhrases.get(rng.nextInt(subjectPhrases.size())));
 
-                case 5 -> tempQ = new NarratedQ(subjectWords.get(rng.nextInt(subjectWords.size())));
-                
-                case 6 -> tempQ = new NarratedQ(subjectPhrases.get(rng.nextInt(subjectPhrases.size())));
-                
-                case 7,8 -> tempQ = new Flashcard(subjectWords.get(rng.nextInt(subjectWords.size())));
+                case 5 -> {
+                    NarratedQ q = new NarratedQ(subjectWords.get(rng.nextInt(subjectWords.size())));
+                    tempQ = q;
+                }
+
+                case 6 -> {
+                    NarratedQ q = new NarratedQ(subjectPhrases.get(rng.nextInt(subjectPhrases.size())));
+                    tempQ = q;
+                }
+
+                case 7, 8 -> tempQ = new Flashcard(subjectWords.get(rng.nextInt(subjectWords.size())));
 
                 case 9 -> tempQ = new Flashcard(subjectPhrases.get(rng.nextInt(subjectPhrases.size())));
                 default -> System.out.println("Something went wrong in generating questions.");
@@ -157,52 +174,56 @@ public class Lesson  {
         this.setQuestions(tq);
     }
 
-        // No setters present in UML
-    public void setName(String name)  {
+    // No setters present in UML
+    public void setName(String name) {
         this.name = name;
     }
 
-    public void setCompletion(boolean completion)  {
+    public void setCompletion(boolean completion) {
         this.isComplete = completion;
     }
 
-    public void setQuestions(ArrayList<Question> questions)  {
+    public void setQuestions(ArrayList<Question> questions) {
         this.questions = questions;
     }
 
-    public void setUserScore(int userScore)  {
+    public void setUserScore(int userScore) {
         this.userScore = userScore;
     }
 
-    public void setMaxScore(int maxScore)  {
+    public void setMaxScore(int maxScore) {
         this.maxScore = maxScore;
     }
-    public void addUserScore()  {
+
+    public void addUserScore() {
         this.userScore++;
     }
 
     public int getDifficulty() {
         return this.difficulty;
     }
-    
+
     public void setDifficulty(int difficulty) {
         this.difficulty = difficulty;
     }
 
     public void doQuestions() {
         System.out.println("BEGINNING LESSON");
-        for(int i=0; i < questions.size(); i++) {
+        for (int i = 0; i < questions.size(); i++) {
             Question q = questions.get(i);
             System.out.println(q);
+            if(q instanceof NarratedQ) {
+                ((NarratedQ)q).playSound();
+            }
+            System.out.println("Enter Answer");
             q.getUserInput(k.nextLine());
-            if(q.isCorrect()) {
+            if (q.isCorrect()) {
                 System.out.println("CORRECT");
                 userScore++;
-            }
-            else {
+            } else {
                 System.out.println("WRONG");
             }
         }
-        System.out.println("SCORE: " + userScore + " out of" + maxScore);
+        System.out.println("SCORE: " + userScore + " out of " + maxScore);
     }
 }
