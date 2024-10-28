@@ -10,14 +10,27 @@ public class Course {
     private int completedLessons;
     private int MAX_LESSONS = 10;
     
+    /**
+     * Returns the current lesson
+     * @return
+     */
     public Lesson getCurrentLesson() {
         return currentLesson;
     }
-    
+
+    /**
+     * Sets the current lesson
+     * @param lesson
+     */
     public void setCurrentLesson(Lesson lesson) {
         this.currentLesson = lesson;
     }
 
+    /**
+     * Constructor for course
+     * @param language
+     * @param user
+     */
     public Course(Language language, User user) {
         this.language = language;
         this.lessons = new ArrayList<>();
@@ -26,6 +39,12 @@ public class Course {
         this.completedLessons = 0;
     }
 
+    /**
+     * Course Constructor
+     * @param language
+     * @param user
+     * @param currentLessonNum
+     */
     public Course(Language language, User user, int currentLessonNum) {
         this.language = language;
         this.lessons = new ArrayList<>();
@@ -35,7 +54,9 @@ public class Course {
         this.user = user;
     }
 
-
+    /**
+     * Loads the lessons
+     */
     public void generateLessons() {
         for(int i=1; i <= MAX_LESSONS; i++) {
             this.lessons.add(new Lesson(i));
@@ -43,6 +64,9 @@ public class Course {
         }
     }
 
+    /**
+     * Runs the lesson sequence
+     */
     public void doLesson() {
         this.currentLesson.doQuestions();
     }
@@ -56,7 +80,6 @@ public class Course {
     }
 
     // Getters
-
     public Language getLanguage() {
         return this.language;
     }
