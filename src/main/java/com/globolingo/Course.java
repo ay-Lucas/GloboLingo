@@ -8,7 +8,7 @@ public class Course {
     private Language language;
     private User user;
     private int completedLessons;
-    private int MAX_LESSONS = 50;
+    private int MAX_LESSONS = 10;
     
     public Lesson getCurrentLesson() {
         return currentLesson;
@@ -28,6 +28,7 @@ public class Course {
 
     public Course(Language language, User user, int currentLessonNum) {
         this.language = language;
+        this.lessons = new ArrayList<>();
         generateLessons();
         this.currentLesson = lessons.get(currentLessonNum);
         this.language = language;
@@ -35,8 +36,9 @@ public class Course {
     }
 
     public void generateLessons() {
-        for(int i=0; i < MAX_LESSONS; i++) {
-            this.lessons.add(new Lesson(completedLessons));
+        for(int i=1; i <= MAX_LESSONS; i++) {
+            this.lessons.add(new Lesson(i));
+            System.out.println("Loaded question " + i);
         }
     }
 

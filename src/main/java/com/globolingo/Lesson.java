@@ -85,6 +85,7 @@ public class Lesson  {
             }
         }
         
+        System.out.println("DEBUG: " + subjectWords);
 
         for(int i = 0; i < 9; i++)  {
             Question tempQ = null;
@@ -94,20 +95,20 @@ public class Lesson  {
                     ArrayList<String> options = new ArrayList<>();
                     ArrayList<String> output = new ArrayList<>();
                     ArrayList<Integer> selectedNums = new ArrayList<>();
-                    selectedNums.add(rng.nextInt(subjectWords.size()+1));
+                    selectedNums.add(rng.nextInt(subjectWords.size()));
                     Word answer = subjectWords.get(selectedNums.get(0));
                     options.add(answer.getTranslation());
 
                     for(int j = 1; j < 4; j++) {
                         int tracker = selectedNums.get(0);
                         while(selectedNums.contains(tracker))
-                            tracker = rng.nextInt(subjectWords.size()+1);
+                            tracker = rng.nextInt(subjectWords.size());
                         options.add(subjectWords.get(tracker).getTranslation());
                         selectedNums.add(tracker);
                     }
 
                     for(int j = 0; j < 4; j++)  {
-                        output.add(options.get(rng.nextInt(options.size()+1)));
+                        output.add(options.get(rng.nextInt(options.size())));
                     }
                     
                     tempQ = new MultipleChoice(output, answer);
@@ -117,34 +118,34 @@ public class Lesson  {
                     ArrayList<String> optionsPhrase = new ArrayList<>();
                     ArrayList<String> outputPhrase = new ArrayList<>();
                     ArrayList<Integer> selectedNumsPhrase = new ArrayList<>();
-                    selectedNumsPhrase.add(rng.nextInt(subjectPhrases.size()+1));
+                    selectedNumsPhrase.add(rng.nextInt(subjectPhrases.size()));
                     Phrase answerPhrase = subjectPhrases.get(selectedNumsPhrase.get(0));
                     optionsPhrase.add(answerPhrase.getTranslationString());
 
                     for(int j = 1; j < 4; j++) {
                         int tracker = selectedNumsPhrase.get(0);
                         while(selectedNumsPhrase.contains(tracker))
-                            tracker = rng.nextInt(subjectPhrases.size()+1);
+                            tracker = rng.nextInt(subjectPhrases.size());
                         optionsPhrase.add(subjectPhrases.get(tracker).getTranslationString());
                         selectedNumsPhrase.add(tracker);
                     }
 
                     for(int j = 0; j < 4; j++)  {
-                        outputPhrase.add(optionsPhrase.get(rng.nextInt(optionsPhrase.size()+1)));
+                        outputPhrase.add(optionsPhrase.get(rng.nextInt(optionsPhrase.size())));
                     }
                     
                     tempQ = new MultipleChoice(outputPhrase, answerPhrase);
                 }
 
-                case 4 -> tempQ = new SentenceBuild(subjectPhrases.get(rng.nextInt(subjectPhrases.size()+1)));
+                case 4 -> tempQ = new SentenceBuild(subjectPhrases.get(rng.nextInt(subjectPhrases.size())));
 
-                case 5 -> tempQ = new NarratedQ(subjectWords.get(rng.nextInt(subjectWords.size()+1)));
+                case 5 -> tempQ = new NarratedQ(subjectWords.get(rng.nextInt(subjectWords.size())));
                 
-                case 6 -> tempQ = new NarratedQ(subjectPhrases.get(rng.nextInt(subjectPhrases.size()+1)));
+                case 6 -> tempQ = new NarratedQ(subjectPhrases.get(rng.nextInt(subjectPhrases.size())));
                 
-                case 7,8 -> tempQ = new Flashcard(subjectWords.get(rng.nextInt(subjectWords.size()+1)));
+                case 7,8 -> tempQ = new Flashcard(subjectWords.get(rng.nextInt(subjectWords.size())));
 
-                case 9 -> tempQ = new Flashcard(subjectPhrases.get(rng.nextInt(subjectPhrases.size()+1)));
+                case 9 -> tempQ = new Flashcard(subjectPhrases.get(rng.nextInt(subjectPhrases.size())));
                 default -> System.out.println("Something went wrong in generating questions.");
             }
             tq.add(tempQ);
