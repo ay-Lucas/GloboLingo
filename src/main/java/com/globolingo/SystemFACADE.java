@@ -3,7 +3,6 @@ package com.globolingo;
 import java.util.ArrayList;
 
 public class SystemFACADE {
-    private User user;
     private UserList userList;
     private User currentUser; 
     private Course currentCourse;
@@ -49,6 +48,7 @@ public class SystemFACADE {
         if (currentUser != null) {
             Course newCourse = new Course(language, currentUser, currentUser.getLevel());
             currentUser.addCourse(newCourse);
+            currentUser.setLevel(currentUser.getLevel() + 1);
             userList.saveUser(currentUser);
             this.currentCourse = newCourse;
             this.currentCourse.doLesson();
@@ -57,6 +57,7 @@ public class SystemFACADE {
 
     public void continueLearning() {
         if (currentUser != null || this.currentCourse != null) {
+            currentUser.setLevel(currentUser.getLevel() + 1);
             this.currentCourse.doLesson();
         }
     }

@@ -24,18 +24,30 @@ public class Scenario {
     }
 
     public static void scenario2() {
+        System.out.println("---------SCENARIO 2--------- \n");
         // Start Tim's learning session
         System.out.println("Let's start learning, " + sf.getCurrentUser().getUsername());
         sf.startLearning(Language.SPANISH);
-        
+        System.out.println("level: " + sf.getCurrentUser().getLevel());
+        sf.logout();
     }
+
+    public static void scenario3() {
+        System.out.println("---------SCENARIO 3--------- \n");
+        // Start Tammy's learning session
+        sf.login("ttomacka", "012345678" );
+        System.out.println("Let's start learning, " + sf.getCurrentUser().getUsername());
+        sf.startLearning(Language.SPANISH);
+        System.out.println("level: " + sf.getCurrentUser().getLevel());
+        sf.logout();
+    }
+    
 
     /**
      * Helper method for displaying the entries in User.json, using Dataloader.java
      * @param args
      */
     public static void displayJSON() {
-        System.out.println("---------SCENARIO 2--------- \n");
         System.out.println("Users from User.json:");
         for (User user : DataLoader.getUsers()) {
             System.out.println(user + "\n");
@@ -45,6 +57,6 @@ public class Scenario {
     public static void main(String[] args) {
         scenario1();
         scenario2();
-        sf.removeCurrentUser();
+        scenario3();
     }
 }
