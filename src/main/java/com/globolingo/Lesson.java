@@ -11,7 +11,6 @@ public class Lesson  {
     private int userScore;
     private int maxScore;
     private int difficulty;
-
         
     public Lesson(int lessonNumber)  {
         this.userScore = 0;
@@ -93,7 +92,7 @@ public class Lesson  {
             Question tempQ = null;
   
             switch(i)  {
-                case 0,1 -> {
+                case 0,1 -> { // Mulitple choice for words
                     ArrayList<String> options = new ArrayList<>();
                     ArrayList<String> output = new ArrayList<>();
                     ArrayList<Integer> selectedNums = new ArrayList<>();
@@ -116,7 +115,7 @@ public class Lesson  {
                     tempQ = new MultipleChoice(output, answer);
                 }
 
-                case 2,3 -> {
+                case 2,3 -> { // Multiple choices for Phrases
                     ArrayList<String> optionsPhrase = new ArrayList<>();
                     ArrayList<String> outputPhrase = new ArrayList<>();
                     ArrayList<Integer> selectedNumsPhrase = new ArrayList<>();
@@ -189,9 +188,10 @@ public class Lesson  {
 
     public void doQuestions() {
         System.out.println("BEGINNING LESSON");
-        for(int i=0; i < questions.size(); i++) {
-            System.out.println(questions.get(i));
-            System.out.println("ENTER ANSWER HERE");
+        for(int i=0; i <= questions.size(); i++) {
+            Question q = questions.get(i);
+            System.out.println(q);
+            q.getUserInput(UI.getInput());
         }
     }
     

@@ -2,19 +2,13 @@ package com.globolingo;
 import java.util.Scanner;
 
 public class UI  {
-    private Scanner scanner;
-    private SystemFACADE facade;
+    private static Scanner keyboard;
 
-        // No constructor in UML
     public UI()  {
-
+        Scanner keyboard = new Scanner(System.in);
     }
 
-    public void run()  {
-
-    }
-
-    private void displayDashBoard()  {
-        
+    public static String getInput()  {
+        return keyboard.nextLine();
     }
 }

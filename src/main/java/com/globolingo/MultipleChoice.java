@@ -94,9 +94,17 @@ public class MultipleChoice implements Question  {
 
     @Override
     public String toString()  {
-        return "How do you say " + word.getEnglishWord() + " in " +
-        word.getLanguage() + "?\n A) " + options.get(0) + "\nB) " +
-        options.get(1) + "\nC) " + options.get(2) + "\nD) " + 
-        options.get(3);
+        if(word != null) {
+            return "How do you say " + word.getEnglishWord() + " in " +
+            word.getLanguage() + "?\n A) " + options.get(0) + "\nB) " +
+            options.get(1) + "\nC) " + options.get(2) + "\nD) " + 
+            options.get(3);
+        }
+        else {
+            return "How do you say " + phrase.getEnglishPhrase() + " in " +
+            phrase.getLanguage() + "?\n A) " + options.get(0) + "\nB) " +
+            options.get(1) + "\nC) " + options.get(2) + "\nD) " + 
+            options.get(3);
+        }
     }
 }
