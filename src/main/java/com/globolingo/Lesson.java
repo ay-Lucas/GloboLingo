@@ -22,14 +22,6 @@ public class Lesson {
         this.generateQuestions(lessonNumber);
     }
 
-    // public Lesson(String name, ArrayList<Question> questions, int userScore, int
-    // maxScore) {
-    // this.name = name;
-    // this.questions = questions;
-    // this.userScore = userScore;
-    // this.maxScore = maxScore;
-    // }
-
     public String getName() {
         return this.name;
     }
