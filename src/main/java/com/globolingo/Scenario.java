@@ -42,7 +42,6 @@ public class Scenario {
         sf.logout();
     }
     
-
     /**
      * Helper method for displaying the entries in User.json, using Dataloader.java
      * @param args
