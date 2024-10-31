@@ -123,6 +123,16 @@ public class UserList extends DataConstants {
     }
 
     /**
+     * Logs in a user by setting their login status to true.
+     * 
+     * @param user the User object to log in
+     */
+    public void logInUser(User user) {
+        user.setLoggedIn(true);
+        saveUsers();
+    }
+
+    /**
      * Logs out a user by setting their login status to false.
      * 
      * @param user the User object to log out
