@@ -64,10 +64,10 @@ public class Avatar {
     }
 
     /**
-     * Checks if another avatar is equal to this instance
+     * Checks if another object is equal to this instance
      * 
-     * @param avatar
-     * @return true or false if avatar is the same
+     * @param obj
+     * @return true or false if the obj is the same
      */
     @Override
     public boolean equals(Object obj) {

@@ -355,7 +355,8 @@ public class User {
                 lastName.equals(user.lastName) &&
                 password.equals(user.password) &&
                 uuid.equals(user.uuid) &&
-                unlockedAvatars.equals(user.unlockedAvatars) &&
-                courseList.equals(user.courseList);
+                (unlockedAvatars == null ? user.unlockedAvatars == null : unlockedAvatars.equals(user.unlockedAvatars))
+                &&
+                (courseList == null ? user.courseList == null : courseList.equals(user.courseList));
     }
 }

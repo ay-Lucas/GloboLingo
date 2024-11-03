@@ -31,8 +31,10 @@ public class Course {
      * Constructs a new Course with the specified language,
      * user, and sets the current lesson based on the provided lesson number.
      * 
-     * @param language the Language object representing the language of the course
-     * @param user     the User object representing the user enrolled in the course
+     * @param language         the Language object representing the language of the
+     *                         course
+     * @param user             the User object representing the user enrolled in the
+     *                         course
      * @param currentLessonNum the index of the current lesson to be set
      */
     public Course(Language language, User user, int currentLessonNum) {
@@ -155,5 +157,27 @@ public class Course {
      */
     public ArrayList<Lesson> getLessons() {
         return lessons;
+    }
+
+    /**
+     * Checks if another object is equal to this instance
+     * 
+     * @param obj
+     * @return true or false if the obj is the same
+     */
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        Course course = (Course) obj;
+        return completedLessons == course.completedLessons &&
+                language.equals(course.language) &&
+                user.getUUID() == course.getUser().getUUID() && // can't compare users directly with .equals method,
+                                                                // will cause a stack overflow
+                (currentLesson == null ? course.currentLesson == null : currentLesson.equals(course.currentLesson)) &&
+                lessons.equals(course.lessons);
     }
 }
