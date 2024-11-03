@@ -58,4 +58,18 @@ public class Avatar {
     public String getName() {
         return name;
     }
+
+    public String toString() {
+        return "\nname: " + name + "\npath:" + path + "\nisDefault: " + isDefault;
+    }
+
+    /**
+     * Checks if another avatar is equal to this instance
+     * 
+     * @param avatar
+     * @return true or false if avatar is the same
+     */
+    public boolean equals(Avatar avatar) {
+        return name == avatar.name && path == avatar.path && isDefault == avatar.isDefault;
+    }
 }
