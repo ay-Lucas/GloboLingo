@@ -69,7 +69,16 @@ public class Avatar {
      * @param avatar
      * @return true or false if avatar is the same
      */
-    public boolean equals(Avatar avatar) {
-        return name == avatar.name && path == avatar.path && isDefault == avatar.isDefault;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        Avatar avatar = (Avatar) obj;
+        return isDefault == avatar.isDefault &&
+                name.equals(avatar.name) &&
+                path.equals(avatar.path);
     }
 }

@@ -335,15 +335,27 @@ public class User {
     }
 
     /**
-     * Checks if another user is equal to this instance
+     * Checks if another object is equal to this instance
      * 
      * @param user
      * @return true or false if user is the same
      */
-    public boolean equals(User user) {
-        return username == user.username && firstName == user.firstName && lastName == user.lastName
-                && password == user.password && level == user.level && avatar.equals(user.avatar)
-                && unlockedAvatars.equals(user.unlockedAvatars) && courseList.equals(user.courseList)
-                && uuid == user.uuid && loggedIn == user.loggedIn;
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null || getClass() != obj.getClass())
+            return false;
+
+        User user = (User) obj;
+        return level == user.level &&
+                loggedIn == user.loggedIn &&
+                username.equals(user.username) &&
+                firstName.equals(user.firstName) &&
+                lastName.equals(user.lastName) &&
+                password.equals(user.password) &&
+                uuid.equals(user.uuid) &&
+                unlockedAvatars.equals(user.unlockedAvatars) &&
+                courseList.equals(user.courseList);
     }
 }
