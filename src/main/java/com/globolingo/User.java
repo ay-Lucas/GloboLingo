@@ -1,7 +1,10 @@
 package com.globolingo;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.UUID;
+
+import software.amazon.awssdk.services.polly.internal.UserAgentUtils;
 
 /**
  * A User
@@ -57,10 +60,11 @@ public class User {
         unlockedAvatars = new ArrayList<>();
         courseList = new ArrayList<>();
         courseList.add(new Course(Language.SPANISH, this));
-        this.uuid = UUID.randomUUID();  // Generate new UUID for the user
-        this.avatar = new AvatarManager().getAvatar("default");  // Set default avatar
-        this.level = 1;  // Set initial level
+        this.uuid = UUID.randomUUID(); // Generate new UUID for the user
+        this.avatar = new AvatarManager().getAvatar("default"); // Set default avatar
+        this.level = 1; // Set initial level
     }
+
     /**
      * Creates a new instance of User
      * 
@@ -75,17 +79,15 @@ public class User {
         this.firstName = firstName;
         this.lastName = lastname;
         this.level = level;
-        if(uuid == null) {
-            this.uuid = UUID.randomUUID();  // Generate new UUID for the user
-        }
-        else {
+        if (uuid == null) {
+            this.uuid = UUID.randomUUID(); // Generate new UUID for the user
+        } else {
             this.uuid = uuid;
         }
-        if(avatar == null) {
+        if (avatar == null) {
             this.avatar = new Avatar();
-        }
-        else {
-        this.avatar = avatar;
+        } else {
+            this.avatar = avatar;
         }
         this.unlockedAvatars = new ArrayList<>();
         this.courseList = new ArrayList<>();
@@ -330,5 +332,18 @@ public class User {
                 + this.avatar.getName() + "\nUnlocked Avatars: " + unlockedAvatarsStr + "\nCourses: " + courseListStr
                 + "\nPassword: "
                 + this.password + "\nLevel: " + this.level + "\nID: " + this.uuid;
+    }
+
+    /**
+     * Checks if another user is equal to this instance
+     * 
+     * @param user
+     * @return true or false if user is the same
+     */
+    public boolean equals(User user) {
+        return username == user.username && firstName == user.firstName && lastName == user.lastName
+                && password == user.password && level == user.level && avatar.equals(user.avatar)
+                && unlockedAvatars.equals(user.unlockedAvatars) && courseList.equals(user.courseList)
+                && uuid == user.uuid && loggedIn == user.loggedIn;
     }
 }
