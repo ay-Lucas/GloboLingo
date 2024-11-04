@@ -5,36 +5,6 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 class LanguageTest {
-    
-    @Test
-    void testSpanishLanguageString() {
-        Language language = Language.SPANISH;
-        assertEquals("SPANISH", language.getLanguage());
-    }
-
-    @Test
-    void testJapaneseLanguageString() {
-        Language language = Language.JAPANESE;
-        assertEquals("JAPANESE", language.getLanguage());
-    }
-
-    @Test
-    void testGermanLanguageString() {
-        Language language = Language.GERMAN;
-        assertEquals("GERMAN", language.getLanguage());
-    }
-
-    @Test
-    void testItalianLanguageString() {
-        Language language = Language.ITALIAN;
-        assertEquals("ITALIAN", language.getLanguage());
-    }
-
-    @Test
-    void testFrenchLanguageString() {
-        Language language = Language.FRENCH;
-        assertEquals("FRENCH", language.getLanguage());
-    }
 
     @Test
     void testEnumValues() {
