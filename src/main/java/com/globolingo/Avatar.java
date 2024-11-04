@@ -77,8 +77,9 @@ public class Avatar {
             return false;
 
         Avatar avatar = (Avatar) obj;
+
         return isDefault == avatar.isDefault &&
-                name.equals(avatar.name) &&
-                path.equals(avatar.path);
+                (name == avatar.name || (name != null && name.equals(avatar.name))) &&
+                (path == avatar.path || (path != null && path.equals(avatar.path)));
     }
 }
