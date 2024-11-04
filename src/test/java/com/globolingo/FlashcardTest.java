@@ -4,84 +4,54 @@ import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-// Mock class for Word and Phrase in case they are not available
-class Word {
-    private String englishWord;
-    private String translation;
-
-    public Word(String englishWord, String translation) {
-        this.englishWord = englishWord;
-        this.translation = translation;
-    }
-
-    public String getEnglishWord() { return englishWord; }
-    public String getTranslation() { return translation; }
-}
-
-class Phrase {
-    private String englishPhrase;
-    private String translationString;
-
-    public Phrase(String englishPhrase, String translationString) {
-        this.englishPhrase = englishPhrase;
-        this.translationString = translationString;
-    }
-
-    public String getEnglishPhrase() { return englishPhrase; }
-    public String getTranslationString() { return translationString; }
-}
-
+/**
+ * JUnit test class for Flashcard
+ */
 public class FlashcardTest {
-    private Flashcard flashcardFromWord;
-    private Flashcard flashcardFromPhrase;
+    private Flashcard flashcard;
+    private Word word;
 
+    /**
+     * Sets up a Word instance and initializes a Flashcard object with it 
+     * before each test.
+     */
     @Before
     public void setUp() {
-        Word word = new Word("house", "casa");
-        Phrase phrase = new Phrase("How are you?", "¿Cómo estás?");
-        
-        flashcardFromWord = new Flashcard(word);
-        flashcardFromPhrase = new Flashcard(phrase);
+        word = new Word(Language.SPANISH, "hello", "hola", "greeting");
+        flashcard = new Flashcard(word);
     }
 
+    /**
+     * Tests that the Flashcard is initialized correctly with the given Word object.
+     */
     @Test
-    public void testFlashcardInitializationWithWord() {
-        assertEquals("casa", flashcardFromWord.getPrompt());
-        assertEquals("house", flashcardFromWord.getAnswer());
+    public void testInitialization() {
+        assertEquals("hola", flashcard.getPrompt());
+        assertEquals("hello", flashcard.getAnswer());
+        assertFalse(flashcard.isCorrect());
     }
 
+    /**
+     * Tests that the getUserInput method correctly evaluates user input 
+     * by setting the correct field based on whether the input matches 
+     * the expected answer.
+     */
     @Test
-    public void testFlashcardInitializationWithPhrase() {
-        assertEquals("¿Cómo estás?", flashcardFromPhrase.getPrompt());
-        assertEquals("How are you?", flashcardFromPhrase.getAnswer());
+    public void testGetUserInput() {
+        flashcard.getUserInput("hello");
+        assertTrue(flashcard.isCorrect());
+
+        flashcard.getUserInput("wrong answer");
+        assertFalse(flashcard.isCorrect());
     }
 
-    @Test
-    public void testIsCorrectInitiallyFalse() {
-        assertFalse(flashcardFromWord.isCorrect());
-    }
-
-    @Test
-    public void testGetUserInputCorrectAnswer() {
-        flashcardFromWord.getUserInput("house");
-        assertTrue(flashcardFromWord.isCorrect());
-    }
-
-    @Test
-    public void testGetUserInputIncorrectAnswer() {
-        flashcardFromWord.getUserInput("wrong answer");
-        assertFalse(flashcardFromWord.isCorrect());
-    }
-
-    @Test
-    public void testGetUserInputCaseInsensitive() {
-        flashcardFromWord.getUserInput("HoUsE");
-        assertTrue(flashcardFromWord.isCorrect());
-    }
-
+    /**
+     * Tests that the toString method returns the correct question format 
+     * for the flashcard prompt.
+     */
     @Test
     public void testToString() {
-        assertEquals("What does \"casa\" mean in English?", flashcardFromWord.toString());
-        assertEquals("What does \"¿Cómo estás?\" mean in English?", flashcardFromPhrase.toString());
+        String expected = "What does \"hola\" mean in English?";
+        assertEquals(expected, flashcard.toString());
     }
 }

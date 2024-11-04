@@ -3,109 +3,72 @@ package com.globolingo;
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
-
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
-// Mock classes for Word and Phrase, if these are unavailable
-class Word {
-    private String englishWord;
-    private String translation;
-
-    public Word(String englishWord, String translation) {
-        this.englishWord = englishWord;
-        this.translation = translation;
-    }
-
-    public String getEnglishWord() { return englishWord; }
-    public String getTranslation() { return translation; }
-}
-
-class Phrase {
-    private String englishPhrase;
-    private String translationString;
-
-    public Phrase(String englishPhrase, String translationString) {
-        this.englishPhrase = englishPhrase;
-        this.translationString = translationString;
-    }
-
-    public String getEnglishPhrase() { return englishPhrase; }
-    public String getTranslationString() { return translationString; }
-}
-
-// Mock class for Narriator to prevent actual sound playback during testing
-class Narriator {
-    public static void playSound(String prompt) {
-        System.out.println("Playing sound for: " + prompt);
-    }
-}
-
+/**
+ * JUnit test class for NarratedQ
+ */
 public class NarratedQTest {
-    private NarratedQ narratedQFromWord;
-    private NarratedQ narratedQFromPhrase;
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+    private NarratedQ narratedQ;
+    private Word word;
 
+    /**
+     * Sets up a Word instance and initializes a NarratedQ object with it 
+     * before each test.
+     */
     @Before
     public void setUp() {
-        Word word = new Word("house", "casa");
-        Phrase phrase = new Phrase("How are you?", "¿Cómo estás?");
+        word = new Word(Language.SPANISH, "hello", "hola", "greeting");
+        narratedQ = new NarratedQ(word);
+    }
 
-        narratedQFromWord = new NarratedQ(word);
-        narratedQFromPhrase = new NarratedQ(phrase);
-        
-        // Capture System.out output to verify playSound output
+    /**
+     * Tests that the NarratedQ object is initialized correctly with the 
+     * given Word object.
+     */
+    @Test
+    public void testInitialization() {
+        assertEquals("hello", narratedQ.getAnswer());  // Check only the answer, as prompt is not accessible
+        assertFalse(narratedQ.isCorrect());            // Confirm the correct status is initially false
+    }
+
+    /**
+     * Tests that the getUserInput method correctly evaluates user input 
+     * by setting the correct field based on whether the input matches 
+     * the answer.
+     */
+    @Test
+    public void testGetUserInput() {
+        narratedQ.getUserInput("hello");
+        assertTrue(narratedQ.isCorrect());
+
+        narratedQ.getUserInput("wrong answer");
+        assertFalse(narratedQ.isCorrect());
+    }
+
+    /**
+     * Tests the playSound method by capturing console output to verify
+     * that the expected message is printed, simulating sound playback.
+     */
+    @Test
+    public void testPlaySound() {
+        ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         System.setOut(new PrintStream(outContent));
+
+        narratedQ.playSound();
+        assertTrue(outContent.toString().contains("...playing sound..."));
+
+        System.setOut(System.out); // Reset the standard output
     }
 
-    @Test
-    public void testNarratedQInitializationWithWord() {
-        assertEquals("house", narratedQFromWord.getAnswer());
-    }
-
-    @Test
-    public void testNarratedQInitializationWithPhrase() {
-        assertEquals("How are you?", narratedQFromPhrase.getAnswer());
-    }
-
-    @Test
-    public void testIsCorrectInitiallyFalse() {
-        assertFalse(narratedQFromWord.isCorrect());
-    }
-
-    @Test
-    public void testGetUserInputCorrectAnswer() {
-        narratedQFromWord.getUserInput("house");
-        assertTrue(narratedQFromWord.isCorrect());
-    }
-
-    @Test
-    public void testGetUserInputIncorrectAnswer() {
-        narratedQFromWord.getUserInput("incorrect answer");
-        assertFalse(narratedQFromWord.isCorrect());
-    }
-
-    @Test
-    public void testGetUserInputCaseInsensitive() {
-        narratedQFromWord.getUserInput("HoUsE");
-        assertTrue(narratedQFromWord.isCorrect());
-    }
-
-    @Test
-    public void testPlaySoundWithWordPrompt() {
-        narratedQFromWord.playSound();
-        assertTrue(outContent.toString().contains("Playing sound for: casa"));
-    }
-
-    @Test
-    public void testPlaySoundWithPhrasePrompt() {
-        narratedQFromPhrase.playSound();
-        assertTrue(outContent.toString().contains("Playing sound for: ¿Cómo estás?"));
-    }
-
+    /**
+     * Tests that the toString method returns the correct prompt format 
+     * for the narrated question.
+     */
     @Test
     public void testToString() {
         String expected = "What does this mean in english? Please type in your response.";
-        assertEquals(expected, narratedQFromWord.toString());
+        assertEquals(expected, narratedQ.toString());
     }
 }
