@@ -13,7 +13,7 @@ import org.junit.jupiter.api.BeforeEach;
 /**
  * Tests for the UserList class, covering user management functions.
  */
-public class TestUserList {
+public class UserListTest {
     private UserList userList;
     private User testUser;
     private final String testUserUsername = "test";
